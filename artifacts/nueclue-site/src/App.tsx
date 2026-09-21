@@ -1,5 +1,5 @@
 import { type FormEvent, type ReactNode, useEffect, useState } from 'react';
-import { Activity, ArrowDownRight, ArrowUpRight, Brackets, Boxes, Check, ChevronRight, Cpu, Database, Gauge, Layers3, Mail, MapPin, Menu, Network, Phone, ShieldCheck, Workflow, X } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Check, ChevronRight, Mail, MapPin, Menu, Phone, X } from 'lucide-react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
@@ -12,6 +12,7 @@ const queryClient = new QueryClient();
 const navItems = [
   { label: 'What we do', href: '#what-we-do' },
   { label: 'Services', href: '#services' },
+  { label: 'GPU Flex', href: '#gpu-flex' },
   { label: 'Capabilities', href: '#capabilities' },
   { label: 'Process', href: '#process' },
 ];
@@ -20,55 +21,52 @@ const services = [
   {
     number: '01',
     title: 'Enterprise AI Development',
-    description: 'Production-grade LLM applications and intelligent systems that respect your data, your people, and the way your business actually works.',
-    tags: ['LLM applications', 'Private data', 'Production systems'],
-    icon: Boxes,
+    description: 'Custom AI systems built on LLMs, retrieval-augmented generation (RAG), computer vision, and speech models. We handle fine-tuning, evaluation, integration with ERP and CRM systems, and deployment on cloud, on-premise, or edge.',
+    tags: 'LLMs · RAG · VISION · SPEECH',
   },
   {
     number: '02',
     title: 'AI Agents & Automation',
-    description: 'Agentic systems that reason across tools, workflows, and knowledge bases — with the guardrails to make autonomy useful, not theatrical.',
-    tags: ['Agentic systems', 'Tool use', 'Evaluation'],
-    icon: Workflow,
+    description: 'Agentic workflows that act on your business systems. Voice agents for inbound calls and appointment booking, sales agents for lead qualification, and support agents grounded in your internal knowledge base. Multilingual, including Indian languages.',
+    tags: 'VOICE · WORKFLOWS · INTEGRATIONS',
   },
   {
     number: '03',
     title: 'AI Product Engineering for Startups',
-    description: 'A focused technical partner for ambitious teams moving from a strong insight to an AI product customers can depend on.',
-    tags: ['0 → 1 builds', 'Rapid validation', 'Scale-ready'],
-    icon: Brackets,
+    description: 'For founders at idea stage, we scope, architect, and build the MVP. For startups with a live product, we develop specific AI modules delivered as APIs your team can own.',
+    tags: 'MVP · MODULES · APIs',
   },
   {
     number: '04',
-    title: 'GPU Infrastructure & Utilisation',
-    description: 'The systems layer underneath the model: efficient inference, predictable workloads, and infrastructure that turns expensive compute into an advantage.',
-    tags: ['Inference', 'GPU scheduling', 'Observability'],
-    icon: Gauge,
+    title: 'GPU Flex: GPU Infrastructure & Utilisation',
+    description: 'Our platform for NVIDIA GPU servers. Shared, dedicated, and MIG-partitioned allocation, browser-based access through JupyterHub and web terminal, and a live dashboard for utilisation and users.',
+    tags: 'NVIDIA · MIG · ON-PREMISE',
   },
 ];
 
 const capabilities = [
-  { label: 'Model selection & evaluation', detail: 'Choose the right model for the job, then prove it with task-specific benchmarks.', icon: Activity },
-  { label: 'Data pipelines & retrieval', detail: 'Reliable ingestion, transformation, indexing, and retrieval over proprietary knowledge.', icon: Database },
-  { label: 'Application development', detail: 'Thoughtful interfaces and robust services that make intelligence usable in the real world.', icon: Brackets },
-  { label: 'Inference optimisation', detail: 'Latency, throughput, quantisation, caching, and cost tuned for your production shape.', icon: Cpu },
-  { label: 'Deployment & operations', detail: 'Observability, evaluation loops, safety controls, and a clean path from staging to scale.', icon: ShieldCheck },
-  { label: 'Systems architecture', detail: 'A clear technical backbone connecting models, products, data, and the teams around them.', icon: Network },
+  { title: 'AI & ML', items: ['LLMs', 'RAG', 'Fine-tuning (LoRA / QLoRA)', 'Computer vision', 'Speech recognition and synthesis', 'Multi-agent systems', 'Vector databases'] },
+  { title: 'Infrastructure', items: ['GPU Flex platform', 'NVIDIA DGX and HGX systems', 'Jetson edge devices', 'CUDA', 'MIG', 'Kubernetes', 'Slurm', 'Containerised environments'] },
+  { title: 'Deployment', items: ['vLLM', 'TensorRT', 'Triton Inference Server', 'MLOps pipelines', 'Cloud', 'On-premise', 'Hybrid'] },
 ];
 
 const engagementSteps = [
-  { number: '01', title: 'Scoping', description: 'We understand the ambition, constraints, users, and the measurable outcome worth building toward.' },
-  { number: '02', title: 'Architecture', description: 'We make the important choices explicit: models, data, interfaces, infrastructure, and trade-offs.' },
-  { number: '03', title: 'Development', description: 'Small feedback loops, working software, and engineering decisions that stay legible as the system grows.' },
-  { number: '04', title: 'Deployment', description: 'We put the system in the hands of real users with the instrumentation and controls to operate it well.' },
-  { number: '05', title: 'Support', description: 'We stay close through iteration, optimisation, and the next question your system makes possible.' },
+  { number: '01', title: 'Scoping', description: 'We define the problem, success metrics, data availability, and technical constraints.' },
+  { number: '02', title: 'Architecture', description: 'We recommend models, infrastructure, and integration approach, with cost estimates.' },
+  { number: '03', title: 'Development', description: 'We build in two-week sprints with working demos at each stage.' },
+  { number: '04', title: 'Deployment', description: 'We release to production with monitoring and documentation.' },
+  { number: '05', title: 'Support', description: 'We offer ongoing maintenance, model updates, and performance tuning.' },
 ];
+
+function GridLines() {
+  return <div className="section-grid-lines" aria-hidden="true">{Array.from({ length: 12 }, (_, index) => <span key={index} />)}</div>;
+}
 
 function useRevealOnScroll() {
   useEffect(() => {
-    const revealNodes = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>('.reveal, .mask-reveal'));
     if (!('IntersectionObserver' in window)) {
-      revealNodes.forEach((node) => node.classList.add('is-visible'));
+      nodes.forEach((node) => node.classList.add('is-visible'));
       return;
     }
     const observer = new IntersectionObserver((entries) => {
@@ -78,54 +76,70 @@ function useRevealOnScroll() {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.14 });
-    revealNodes.forEach((node) => observer.observe(node));
+    }, { threshold: 0.12 });
+    nodes.forEach((node) => observer.observe(node));
     return () => observer.disconnect();
   }, []);
 }
 
-function Logo({ light = false }: { light?: boolean }) {
+function PhotoSlot({ label, caption, meta, className = '' }: { label: string; caption: string; meta?: string; className?: string }) {
   return (
-    <a href="#top" aria-label="Nueclue home" data-testid="link-logo" className="group inline-flex items-center gap-3">
-      <span className={`grid h-9 w-9 place-items-center rounded-full border ${light ? 'border-[#d7f997]/40 bg-[#d7f997] text-[#173b34]' : 'border-[#173b34]/20 bg-[#173b34] text-[#d7f997]'}`}>
-        <span className="text-[1.05rem] font-bold leading-none">n</span>
-      </span>
-      <span className={`text-[1.05rem] font-semibold tracking-[-.04em] ${light ? 'text-[#f7f2e8]' : 'text-[#173b34]'}`}>nueclue</span>
+    <div className={`photo-slot mask-reveal ${className}`} role="img" aria-label={`Placeholder for ${label}`}>
+      <span className="slot-kicker">PHOTO SLOT / {label}</span>
+      <span className="slot-crosshair" aria-hidden="true" />
+      <div className="slot-caption">{caption}{meta && <span className="slot-meta block mt-2">{meta}</span>}</div>
+    </div>
+  );
+}
+
+function Logo() {
+  return (
+    <a href="#top" aria-label="Nueclue home" data-testid="link-logo" className="font-display text-[1.25rem] font-bold tracking-[-.06em] text-[#EDEBE6]">
+      nueclue<span className="text-[#FF5A1F]">.</span>
     </a>
   );
 }
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    let previous = window.scrollY;
+    const onScroll = () => {
+      const current = window.scrollY;
+      setScrolled(current > 64);
+      setHidden(current > previous && current > 180);
+      previous = current;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <header className="absolute left-0 right-0 top-0 z-30">
-      <div className="content-width flex h-20 items-center justify-between">
-        <Logo light />
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
+    <header className={`nav-shell fixed left-0 right-0 top-0 z-40 ${scrolled ? 'nav-scrolled' : ''} ${hidden && !menuOpen ? 'nav-hidden' : ''}`}>
+      <div className="content-width flex h-[4.75rem] items-center justify-between">
+        <Logo />
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} data-testid={`link-nav-${item.label.toLowerCase().replaceAll(' ', '-')}`} className="signal-line font-mono-ui text-[.68rem] uppercase tracking-[.12em] text-[#d6dbcf]/80 transition-colors hover:text-[#d7f997]">
-              {item.label}
-            </a>
+            <a key={item.href} href={item.href} data-testid={`link-nav-${item.label.toLowerCase().replaceAll(' ', '-')}`} className="signal-line text-[.78rem] text-[#8C8A85] transition-colors hover:text-[#EDEBE6]">{item.label}</a>
           ))}
         </nav>
-        <a href="#contact" data-testid="link-header-contact" className="hidden items-center gap-2 border border-[#d7f997]/40 px-4 py-2.5 font-mono-ui text-[.68rem] uppercase tracking-[.12em] text-[#d7f997] transition-colors hover:bg-[#d7f997] hover:text-[#173b34] sm:inline-flex">
-          Start a conversation <ArrowUpRight size={14} aria-hidden="true" />
-        </a>
-        <button type="button" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)} data-testid="button-mobile-menu" className="grid h-10 w-10 place-items-center border border-[#d7f997]/40 text-[#d7f997] md:hidden">
+        <a href="#contact" data-testid="link-header-contact" className="orange-button hidden min-h-0 py-3 sm:inline-flex">Discuss a project <ArrowUpRight size={15} aria-hidden="true" /></a>
+        <button type="button" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)} data-testid="button-mobile-menu" className="grid h-10 w-10 place-items-center border border-white/25 text-[#EDEBE6] lg:hidden">
           {menuOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
       </div>
       {menuOpen && (
-        <nav className="content-width border-t border-[#d7f997]/15 bg-[#173b34] py-5 md:hidden" aria-label="Mobile navigation">
-          <div className="flex flex-col gap-1">
-            {navItems.map((item) => (
-              <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)} data-testid={`link-mobile-${item.label.toLowerCase().replaceAll(' ', '-')}`} className="px-3 py-3 font-mono-ui text-xs uppercase tracking-[.12em] text-[#d6dbcf] hover:bg-[#d7f997] hover:text-[#173b34]">
-                {item.label}
+        <nav className="menu-panel border-t border-white/10 px-5 py-7 lg:hidden" aria-label="Mobile navigation">
+          <div className="content-width flex flex-col">
+            {navItems.map((item, index) => (
+              <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)} data-testid={`link-mobile-${item.label.toLowerCase().replaceAll(' ', '-')}`} className="flex items-center justify-between border-b border-white/10 py-5 font-display text-3xl font-semibold tracking-[-.04em] text-[#EDEBE6]">
+                <span><span className="mr-4 font-mono-ui text-xs text-[#FF5A1F]">0{index + 1}</span>{item.label}</span><ArrowDownRight size={18} />
               </a>
             ))}
-            <a href="#contact" onClick={() => setMenuOpen(false)} data-testid="link-mobile-contact" className="mt-2 inline-flex items-center gap-2 px-3 py-3 font-mono-ui text-xs uppercase tracking-[.12em] text-[#d7f997]">
-              Start a conversation <ArrowUpRight size={14} />
-            </a>
+            <a href="#contact" onClick={() => setMenuOpen(false)} data-testid="link-mobile-contact" className="orange-button mt-7">Discuss a project <ArrowUpRight size={15} /></a>
           </div>
         </nav>
       )}
@@ -135,44 +149,27 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="top" className="dark-grid relative isolate min-h-[46rem] overflow-hidden bg-[#173b34] text-[#f7f2e8]">
+    <section id="top" className="relative min-h-[100dvh] overflow-hidden bg-[#0B0B0C] text-[#EDEBE6]">
       <Header />
-      <div className="pointer-events-none absolute -right-40 top-28 h-[32rem] w-[32rem] rounded-full border border-[#d7f997]/10 md:right-[-4rem]">
-        <div className="hero-orbit absolute inset-10" />
-        <div className="hero-orbit hero-orbit-reverse absolute inset-24" />
-        <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d7f997]/10 blur-2xl" />
-      </div>
-      <div className="content-width relative flex min-h-[46rem] flex-col justify-end pb-20 pt-36 md:pb-24">
-        <div className="mb-8 flex items-center gap-3 font-mono-ui text-[.68rem] uppercase tracking-[.16em] text-[#d7f997] reveal">
-          <span className="h-2 w-2 rounded-full bg-[#d7f997]" />
-          Bengaluru / AI engineering studio
-        </div>
-        <h1 className="max-w-5xl text-balance text-[clamp(2.8rem,7.3vw,7.5rem)] font-semibold leading-[.98] tracking-[-.08em] text-[#f7f2e8] reveal delay-1">
-          Applied AI engineering for <span className="text-[#d7f997]">enterprises, startups,</span> and research institutions.
-        </h1>
-        <div className="mt-10 grid max-w-4xl gap-8 md:grid-cols-[1fr_auto] md:items-end reveal delay-2">
-          <p className="max-w-xl text-[1rem] leading-7 text-[#d6dbcf]/75 md:text-[1.1rem]">
-            We build LLM applications, agentic systems, computer vision products, and GPU infrastructure — taking ambitious AI from requirement to dependable deployment.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a href="#contact" data-testid="link-hero-discuss-project" className="group inline-flex items-center gap-3 bg-[#d7f997] px-5 py-3.5 text-sm font-semibold text-[#173b34] transition-transform hover:-translate-y-1">
-              Discuss a Project <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-            <a href="#services" data-testid="link-hero-view-services" className="inline-flex items-center gap-3 border border-[#d6dbcf]/30 px-5 py-3.5 text-sm font-semibold text-[#f7f2e8] transition-colors hover:border-[#d7f997] hover:text-[#d7f997]">
-              View Services <ArrowDownRight size={17} />
-            </a>
+      <GridLines />
+      <div className="content-width section-inner flex min-h-[100dvh] flex-col justify-end pb-10 pt-28 md:pb-12">
+        <div className="grid items-end gap-12 lg:grid-cols-[1.3fr_.7fr]">
+          <div>
+            <div className="section-label reveal mb-8">AI ENGINEERING · GPU INFRASTRUCTURE · BENGALURU</div>
+            <h1 className="display-heading reveal delay-1 max-w-5xl text-[clamp(3.25rem,8.7vw,8.5rem)]">Applied AI engineering for enterprises, startups, and research institutions.</h1>
+            <p className="body-copy reveal delay-2 mt-9 max-w-2xl text-[1.03rem] text-[#8C8A85]">We build LLM applications, agentic systems, and computer vision products, and run GPU Flex, our platform for managed, fully utilised GPU infrastructure.</p>
+            <div className="reveal delay-3 mt-9 flex flex-wrap gap-3">
+              <a href="#contact" data-testid="link-hero-discuss-project" className="orange-button">Discuss a project <ArrowUpRight size={16} /></a>
+              <a href="#services" data-testid="link-hero-view-services" className="outline-button">View services <ArrowDownRight size={16} /></a>
+            </div>
           </div>
+          <PhotoSlot label="GPU SERVER FRONT" caption="Intended hero image / GPU server front with rack lights" meta="NVIDIA DGX · 8× GPU · ON-PREMISE" className="reveal delay-2 min-h-[20rem] lg:mb-2" />
         </div>
-        <div className="mt-20 grid grid-cols-2 border-t border-[#d6dbcf]/20 pt-5 sm:grid-cols-4 reveal delay-3">
-          {[
-            ['01', 'Research to reality'],
-            ['02', 'Systems, not demos'],
-            ['03', 'Built around your data'],
-            ['04', 'Bengaluru, worldwide'],
-          ].map(([number, label]) => (
-            <div key={number} className="border-r border-[#d6dbcf]/20 py-2 pr-4 last:border-0 sm:px-4 first:pl-0">
-              <div className="font-mono-ui text-[.65rem] text-[#d7f997]">{number}</div>
-              <div className="mt-2 text-xs text-[#d6dbcf]/65">{label}</div>
+        <div className="hero-rail reveal delay-3 mt-16 grid grid-cols-2 sm:grid-cols-4">
+          {['RESEARCH TO REALITY', 'SYSTEMS, NOT DEMOS', 'BUILT AROUND YOUR DATA', 'BENGALURU, WORLDWIDE'].map((label, index) => (
+            <div key={label} className="border-r border-white/10 py-4 pr-4 first:pl-0 last:border-0 sm:px-5">
+              <span className="font-mono-ui text-[.65rem] text-[#FF5A1F]">0{index + 1}</span>
+              <span className="mt-2 block text-[.64rem] text-[#8C8A85]">{label}</span>
             </div>
           ))}
         </div>
@@ -181,33 +178,29 @@ function Hero() {
   );
 }
 
-function SectionIntro({ eyebrow, title, body, light = false }: { eyebrow: string; title: string; body?: string; light?: boolean }) {
-  return (
-    <div className={`reveal grid gap-6 md:grid-cols-[.7fr_1.3fr] md:gap-14 ${light ? 'text-[#f7f2e8]' : 'text-[#173b34]'}`}>
-      <div className={`font-mono-ui text-[.68rem] uppercase tracking-[.16em] ${light ? 'text-[#d7f997]' : 'text-[#27896c]'}`}>/ {eyebrow}</div>
-      <div>
-        <h2 className="max-w-3xl text-balance text-[clamp(2rem,4.2vw,4rem)] font-semibold leading-[1.03] tracking-[-.07em]">{title}</h2>
-        {body && <p className={`mt-6 max-w-2xl text-base leading-7 ${light ? 'text-[#d6dbcf]/70' : 'text-[#173b34]/65'}`}>{body}</p>}
-      </div>
-    </div>
-  );
-}
-
 function WhatWeDo() {
   return (
-    <section id="what-we-do" className="site-grid bg-[#f7f2e8] py-24 md:py-36">
-      <div className="content-width">
-        <SectionIntro eyebrow="What we do" title="The difficult middle is where we do our best work." body="Most AI initiatives do not fail because the model is unavailable. They fail in the gap between a promising capability and a system people can trust. Nueclue closes that gap — with the technical depth to make the right choices and the pragmatism to ship." />
-        <div className="mt-20 grid gap-0 border-y border-[#173b34]/20 md:grid-cols-3">
+    <section id="what-we-do" className="light-section relative overflow-hidden py-24 md:py-36">
+      <GridLines />
+      <div className="content-width section-inner">
+        <div className="grid gap-14 lg:grid-cols-[.45fr_1.1fr_.7fr] lg:gap-12">
+          <div className="reveal"><div className="section-label light-label">01 / WHAT WE DO</div></div>
+          <div className="reveal delay-1">
+            <h2 className="display-heading max-w-3xl text-[clamp(2.5rem,5.4vw,5.8rem)]">We take AI from requirement to deployment.</h2>
+            <p className="mt-8 max-w-2xl text-[1.04rem] leading-8 text-black/65">Nueclue is an AI engineering firm based in Bengaluru. We take AI from requirement to deployment: model selection, data pipelines, application development, inference optimisation, and production operations. Our clients range from global enterprises to early-stage startups and universities building AI research capacity.</p>
+          </div>
+          <PhotoSlot label="ENGINEER AT TERMINAL" caption="Intended image / engineer at terminal" meta="WORKING SYSTEMS · REAL OPERATIONS" className="reveal delay-2" />
+        </div>
+        <div className="mt-24 grid border-y border-black/15 md:grid-cols-3">
           {[
-            { number: '01', title: 'Make it legible', body: 'We turn a large, ambiguous opportunity into a clear technical path with measurable outcomes.' },
-            { number: '02', title: 'Make it work', body: 'We build the product and systems around the model — the part that creates lasting value.' },
-            { number: '03', title: 'Make it last', body: 'We leave you with a production foundation that can be operated, evaluated, and improved.' },
-          ].map((item, index) => (
-            <article key={item.number} className={`reveal delay-${index + 1} border-b border-[#173b34]/20 py-8 md:border-b-0 md:border-r md:px-8 md:py-10 first:pl-0 last:border-r-0 last:pr-0`}>
-              <span className="font-mono-ui text-xs text-[#27896c]">{item.number}</span>
-              <h3 className="mt-10 text-xl font-semibold tracking-[-.04em]">{item.title}</h3>
-              <p className="mt-3 max-w-xs text-sm leading-6 text-[#173b34]/60">{item.body}</p>
+            ['01', 'Make it legible', 'Turn a large, ambiguous opportunity into a clear technical path.'],
+            ['02', 'Make it work', 'Build the product and systems around the model.'],
+            ['03', 'Make it last', 'Leave a foundation that can be operated, evaluated, and improved.'],
+          ].map(([number, title, body], index) => (
+            <article key={number} className={`reveal delay-${index + 1} border-b border-black/15 py-8 md:border-b-0 md:border-r md:px-8 md:py-10 first:pl-0 last:border-r-0 last:pr-0`}>
+              <span className="font-mono-ui text-xs text-black/45">{number}</span>
+              <h3 className="mt-12 font-display text-2xl font-semibold tracking-[-.04em]">{title}</h3>
+              <p className="mt-3 max-w-xs text-sm leading-6 text-black/60">{body}</p>
             </article>
           ))}
         </div>
@@ -218,27 +211,59 @@ function WhatWeDo() {
 
 function Services() {
   return (
-    <section id="services" className="bg-[#e4e6c6] py-24 md:py-36">
-      <div className="content-width">
-        <SectionIntro eyebrow="Services" title="From first architecture decision to the first reliable inference." body="Engage us for a focused technical challenge or a complete build. The shape changes; the standard does not." />
-        <div className="mt-16 grid gap-4 md:grid-cols-2">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <article key={service.number} data-testid={`card-service-${service.number}`} className={`reveal delay-${(index % 3) + 1} group relative overflow-hidden border border-[#173b34]/20 bg-[#f7f2e8] p-7 transition-colors hover:bg-[#173b34] hover:text-[#f7f2e8] md:p-9 ${index === 0 ? 'md:min-h-[24rem]' : index === 1 ? 'md:translate-y-10 md:min-h-[24rem]' : index === 2 ? 'md:min-h-[21rem]' : 'md:translate-y-10 md:min-h-[21rem]'}`}>
-                <div className="flex items-start justify-between">
-                  <span className="font-mono-ui text-xs text-[#27896c] group-hover:text-[#d7f997]">{service.number}</span>
-                  <Icon size={26} strokeWidth={1.5} className="text-[#27896c] transition-transform duration-300 group-hover:rotate-12 group-hover:text-[#d7f997]" aria-hidden="true" />
+    <section id="services" className="relative overflow-hidden bg-[#0B0B0C] py-24 text-[#EDEBE6] md:py-36">
+      <GridLines />
+      <div className="content-width section-inner">
+        <div className="grid gap-8 md:grid-cols-[.45fr_1.2fr]">
+          <div className="section-label reveal">02 / SERVICES</div>
+          <div className="reveal delay-1"><h2 className="display-heading max-w-4xl text-[clamp(2.7rem,5.6vw,6rem)]">Four practice areas, one engineering team.</h2><p className="body-copy mt-7 max-w-2xl">Each engagement is scoped to your requirements, data, and infrastructure, whether that&apos;s a single AI module or a full production system.</p></div>
+        </div>
+        <div className="mt-20 border-t border-white/15">
+          {services.map((service, index) => (
+            <article key={service.number} className="reveal group grid gap-7 border-b border-white/15 py-8 md:grid-cols-[.14fr_1.05fr_1.2fr_.3fr] md:items-center md:gap-8 md:py-10">
+              <span className="font-mono-ui text-sm text-[#FF5A1F]">{service.number}</span>
+              <h3 className="font-display text-[clamp(1.65rem,2.6vw,2.8rem)] font-semibold leading-[1.02] tracking-[-.045em]">{service.title}</h3>
+              <div><p className="max-w-xl text-sm leading-7 text-[#8C8A85]">{service.description}</p><span className="mt-4 block font-mono-ui text-[.62rem] tracking-[.1em] text-[#8C8A85]">{service.tags}</span></div>
+              <a href={index === 3 ? '#gpu-flex' : '#contact'} data-testid={`link-service-${service.number}`} className="arrow-link justify-self-start text-[#EDEBE6] md:justify-self-end"><span className="hidden md:inline">Learn more</span><ArrowUpRight size={19} /></a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GpuFlexSpotlight() {
+  return (
+    <section id="gpu-flex" className="relative overflow-hidden bg-[#16161A] py-24 text-[#EDEBE6] md:py-36">
+      <GridLines />
+      <div className="content-width section-inner">
+        <div className="grid gap-14 lg:grid-cols-[1.08fr_.92fr] lg:items-start lg:gap-20">
+          <div className="reveal lg:sticky lg:top-28">
+            <div className="section-label mb-8">03 / PRODUCT SPOTLIGHT</div>
+            <PhotoSlot label="GPU FLEX DASHBOARD" caption="Product capture / GPU Flex dashboard" meta="UTILISATION · USERS · CONTAINERS" className="min-h-[25rem] lg:min-h-[37rem]" />
+            <div className="mt-4 flex justify-between font-mono-ui text-[.62rem] uppercase tracking-[.1em] text-[#8C8A85]"><span>Dashboard state / live visibility</span><span>01—04</span></div>
+          </div>
+          <div>
+            <div className="reveal"><h2 className="display-heading max-w-2xl text-[clamp(2.8rem,5.5vw,6rem)]">Turn your GPU servers into a shared, managed compute platform.</h2><p className="body-copy mt-7 max-w-xl">GPU Flex is our platform for NVIDIA GPU servers, deployed and supported on your hardware.</p></div>
+            <div className="mt-14 border-t border-white/15">
+              {[
+                'Shared, dedicated, and MIG-partitioned GPU allocation',
+                'Browser access via JupyterHub, web terminal, and SSH',
+                'Live dashboard for GPU utilisation, users, and containers',
+                'Runs on-premise, so your data stays in your network',
+              ].map((item, index) => (
+                <div key={item} className={`reveal delay-${(index % 3) + 1} flex gap-5 border-b border-white/15 py-6`}>
+                  <span className="font-mono-ui text-xs text-[#FF5A1F]">0{index + 1}</span>
+                  <p className="max-w-md text-base leading-7 text-[#EDEBE6]">{item}</p>
                 </div>
-                <h3 className="mt-16 max-w-sm text-[1.65rem] font-semibold leading-[1.05] tracking-[-.06em]">{service.title}</h3>
-                <p className="mt-4 max-w-md text-sm leading-6 text-[#173b34]/60 group-hover:text-[#d6dbcf]/70">{service.description}</p>
-                <div className="mt-7 flex flex-wrap gap-2">
-                  {service.tags.map((tag) => <span key={tag} className="border border-[#173b34]/15 px-2.5 py-1 font-mono-ui text-[.61rem] uppercase tracking-[.08em] text-[#173b34]/55 group-hover:border-[#d6dbcf]/20 group-hover:text-[#d6dbcf]/65">{tag}</span>)}
-                </div>
-                <ArrowUpRight size={17} className="absolute bottom-8 right-8 text-[#173b34]/30 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#d7f997]" aria-hidden="true" />
-              </article>
-            );
-          })}
+              ))}
+            </div>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a href="#contact" data-testid="link-gpu-request-demo" className="orange-button">Request a demo <ArrowUpRight size={16} /></a>
+              <a href="#contact" data-testid="link-gpu-learn-more" className="outline-button">Learn more <ArrowDownRight size={16} /></a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -246,20 +271,21 @@ function Services() {
 }
 
 function WhoWeWorkWith() {
+  const groups = [
+    ['Enterprises & MNCs', 'AI product development, process automation, and higher GPU utilisation with GPU Flex for teams running large-scale training and inference.', 'ENTERPRISE OFFICE'],
+    ['Startups', 'Engineering capacity for founders who need to ship an AI product or feature without hiring a full ML team.', 'STARTUP TEAM'],
+    ['Universities & Colleges', 'Managed GPU labs powered by GPU Flex, with browser-based access, per-user quotas, and preconfigured environments for coursework and research.', 'UNIVERSITY GPU LAB'],
+  ];
   return (
-    <section className="bg-[#173b34] py-24 text-[#f7f2e8] md:py-36">
-      <div className="content-width">
-        <SectionIntro light eyebrow="Who we work with" title="For teams building what comes next." body="The common thread is not company size. It is the conviction that AI should solve a real problem, and the ambition to build it properly." />
-        <div className="mt-20 grid gap-px overflow-hidden bg-[#d6dbcf]/15 md:grid-cols-3">
-          {[
-            { label: 'Enterprises', title: 'Turn operational knowledge into leverage.', body: 'We help established organisations move from pilots to systems that people across the business can use with confidence.' },
-            { label: 'Startups', title: 'Build the technical edge into the product.', body: 'We join founders and product teams when the idea is clear, the constraints are real, and speed matters.' },
-            { label: 'Research institutions', title: 'Take promising work into the world.', body: 'We translate novel research into usable products, robust infrastructure, and systems that can operate beyond the lab.' },
-          ].map((item, index) => (
-            <article key={item.label} className={`reveal delay-${index + 1} bg-[#173b34] p-8 md:min-h-[20rem] md:p-10`}>
-              <div className="font-mono-ui text-[.67rem] uppercase tracking-[.12em] text-[#d7f997]">{item.label}</div>
-              <h3 className="mt-16 max-w-xs text-[1.45rem] font-semibold leading-[1.1] tracking-[-.05em]">{item.title}</h3>
-              <p className="mt-4 max-w-sm text-sm leading-6 text-[#d6dbcf]/65">{item.body}</p>
+    <section id="who-we-work-with" className="relative overflow-hidden bg-[#0B0B0C] py-24 text-[#EDEBE6] md:py-36">
+      <GridLines />
+      <div className="content-width section-inner">
+        <div className="grid gap-8 md:grid-cols-[.45fr_1.2fr]"><div className="section-label reveal">04 / WHO WE WORK WITH</div><div className="reveal delay-1"><h2 className="display-heading max-w-4xl text-[clamp(2.7rem,5.4vw,5.8rem)]">For teams building what comes next.</h2><p className="body-copy mt-7 max-w-2xl">The common thread is not company size. It is the conviction that AI should solve a real problem, and the ambition to build it properly.</p></div></div>
+        <div className="mt-20 grid gap-4 md:grid-cols-3">
+          {groups.map(([title, body, slot], index) => (
+            <article key={title} className={`reveal delay-${index + 1} border border-white/15 bg-[#16161A] p-4`}>
+              <PhotoSlot label={slot} caption={`Intended image / ${slot.toLowerCase()}`} className="min-h-[14rem]" />
+              <div className="p-3 pb-5"><div className="mt-4 font-mono-ui text-[.67rem] uppercase tracking-[.12em] text-[#FF5A1F]">{title}</div><p className="mt-5 text-sm leading-7 text-[#8C8A85]">{body}</p></div>
             </article>
           ))}
         </div>
@@ -270,23 +296,20 @@ function WhoWeWorkWith() {
 
 function Capabilities() {
   return (
-    <section id="capabilities" className="site-grid bg-[#f7f2e8] py-24 md:py-36">
-      <div className="content-width">
-        <SectionIntro eyebrow="Technical capabilities" title="A full-stack view of applied intelligence." body="Strong models are only one layer. We bring equal care to the data, software, infrastructure, and feedback loops that make them useful." />
-        <div className="mt-16 grid border-t border-[#173b34]/20 md:grid-cols-2">
-          {capabilities.map((capability, index) => {
-            const Icon = capability.icon;
-            return (
-              <article key={capability.label} data-testid={`capability-${index + 1}`} className={`reveal delay-${(index % 3) + 1} group flex gap-5 border-b border-[#173b34]/20 py-7 md:min-h-[10rem] md:px-5 first:pl-0 md:[&:nth-child(odd)]:border-r md:[&:nth-child(odd)]:pl-0 md:[&:nth-child(even)]:pr-0`}>
-                <div className="grid h-10 w-10 shrink-0 place-items-center border border-[#173b34]/20 text-[#27896c] transition-colors group-hover:border-[#173b34] group-hover:bg-[#d7f997] group-hover:text-[#173b34]"><Icon size={18} strokeWidth={1.6} aria-hidden="true" /></div>
-                <div>
-                  <h3 className="text-base font-semibold tracking-[-.03em]">{capability.label}</h3>
-                  <p className="mt-2 max-w-sm text-sm leading-6 text-[#173b34]/60">{capability.detail}</p>
-                </div>
-                <span className="ml-auto font-mono-ui text-[.65rem] text-[#173b34]/30">0{index + 1}</span>
-              </article>
-            );
-          })}
+    <section id="capabilities" className="light-section relative overflow-hidden py-24 md:py-36">
+      <GridLines />
+      <div className="content-width section-inner">
+        <div className="grid gap-8 md:grid-cols-[.45fr_1.2fr]"><div className="section-label light-label reveal">05 / TECHNICAL CAPABILITIES</div><div className="reveal delay-1"><h2 className="display-heading max-w-4xl text-[clamp(2.7rem,5.4vw,5.8rem)]">A full-stack view of applied intelligence.</h2><p className="mt-7 max-w-2xl text-base leading-8 text-black/60">Strong models are only one layer. We bring equal care to the data, software, infrastructure, and feedback loops that make them useful.</p></div></div>
+        <div className="mt-20 grid border-y border-black/15 md:grid-cols-3">
+          {capabilities.map((capability, index) => (
+            <article key={capability.title} className={`reveal delay-${index + 1} border-b border-black/15 py-8 md:border-b-0 md:border-r md:px-8 md:py-10 first:pl-0 last:border-r-0 last:pr-0`}>
+              <div className="flex items-baseline justify-between"><h3 className="font-display text-2xl font-semibold tracking-[-.04em]">{capability.title}</h3><span className="font-mono-ui text-xs text-black/45">0{index + 1}</span></div>
+              <ul className="mt-9 space-y-3">{capability.items.map((item) => <li key={item} className="flex items-start gap-3 text-sm leading-6 text-black/65"><span className="mt-2 h-1.5 w-1.5 shrink-0 bg-[#FF5A1F]" />{item}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+        <div className="tech-marquee mt-20" aria-label="Technology stack">
+          <div className="tech-marquee-track">{['CUDA', 'MIG', 'KUBERNETES', 'SLURM', 'vLLM', 'TENSORRT', 'TRITON', 'PYTORCH', 'HUGGING FACE', 'CUDA', 'MIG', 'KUBERNETES', 'SLURM', 'vLLM', 'TENSORRT', 'TRITON', 'PYTORCH', 'HUGGING FACE'].map((tech, index) => <span key={`${tech}-${index}`}>{tech}</span>)}</div>
         </div>
       </div>
     </section>
@@ -295,21 +318,18 @@ function Capabilities() {
 
 function Process() {
   return (
-    <section id="process" className="bg-[#d7f997] py-24 text-[#173b34] md:py-32">
-      <div className="content-width">
-        <SectionIntro eyebrow="How an engagement works" title="Clear steps. No theatre." body="We keep the work close to the outcome and the decision-making visible at every stage." />
-        <div className="mt-16 grid border-t border-[#173b34]/30 md:grid-cols-5">
+    <section id="process" className="relative overflow-hidden bg-[#0B0B0C] py-24 text-[#EDEBE6] md:py-36">
+      <GridLines />
+      <div className="content-width section-inner">
+        <div className="grid gap-8 md:grid-cols-[.45fr_1.2fr]"><div className="section-label reveal">06 / HOW AN ENGAGEMENT WORKS</div><div className="reveal delay-1"><h2 className="display-heading max-w-4xl text-[clamp(2.7rem,5.4vw,5.8rem)]">Clear steps. No theatre.</h2><p className="body-copy mt-7 max-w-2xl">We keep the work close to the outcome and the decision-making visible at every stage.</p></div></div>
+        <div className="mt-24 md:mt-32"><div className="timeline-line" /><div className="grid md:grid-cols-5">
           {engagementSteps.map((step, index) => (
-            <article key={step.number} className={`reveal delay-${(index % 3) + 1} border-b border-[#173b34]/30 py-7 md:border-b-0 md:border-r md:px-5 md:first:pl-0 md:last:border-r-0 md:last:pr-0`}>
-              <div className="flex items-center justify-between font-mono-ui text-xs">
-                <span>{step.number}</span>
-                {index < engagementSteps.length - 1 && <ChevronRight size={14} className="hidden md:block" aria-hidden="true" />}
-              </div>
-              <h3 className="mt-12 text-lg font-semibold tracking-[-.04em]">{step.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-[#173b34]/65">{step.description}</p>
+            <article key={step.number} className={`timeline-step reveal delay-${(index % 3) + 1} border-b border-white/15 py-7 md:border-b-0 md:border-r md:px-5 md:py-0 md:pt-8 md:first:pl-0 md:last:border-r-0`}>
+              <span className="font-mono-ui text-xs text-[#FF5A1F]">{step.number}</span><h3 className="mt-9 font-display text-2xl font-semibold tracking-[-.04em]">{step.title}</h3><p className="mt-4 max-w-[14rem] text-sm leading-7 text-[#8C8A85]">{step.description}</p>
+              {index < engagementSteps.length - 1 && <ChevronRight className="mt-8 hidden text-[#8C8A85] md:block" size={16} aria-hidden="true" />}
             </article>
           ))}
-        </div>
+        </div></div>
       </div>
     </section>
   );
@@ -317,38 +337,24 @@ function Process() {
 
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSubmitted(true);
-  };
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); setSubmitted(true); };
   return (
-    <section id="contact" className="bg-[#f7f2e8] py-24 md:py-36">
-      <div className="content-width">
-        <div className="grid gap-14 md:grid-cols-[1fr_.8fr] md:gap-24">
-          <div className="reveal">
-            <div className="font-mono-ui text-[.68rem] uppercase tracking-[.16em] text-[#27896c]">/ Contact</div>
-            <h2 className="mt-7 max-w-xl text-balance text-[clamp(2.6rem,6vw,6rem)] font-semibold leading-[.96] tracking-[-.08em]">Tell us what you're building.</h2>
-            <p className="mt-7 max-w-md text-base leading-7 text-[#173b34]/65">We'll respond within one business day with an initial assessment.</p>
-            <div className="mt-12 space-y-4 border-t border-[#173b34]/20 pt-6 text-sm">
-              <a href="mailto:contact@nueclue.com" data-testid="link-contact-email" className="flex items-center gap-3 text-[#173b34] hover:text-[#27896c]"><Mail size={16} aria-hidden="true" /> contact@nueclue.com</a>
-              <div className="flex items-center gap-3 text-[#173b34]/60"><MapPin size={16} aria-hidden="true" /> Bengaluru, India</div>
-            </div>
-          </div>
+    <section id="contact" className="relative overflow-hidden bg-[#F2EFE9] py-24 text-[#0B0B0C] md:py-36">
+      <GridLines />
+      <div className="content-width section-inner">
+        <div className="grid gap-14 lg:grid-cols-[.9fr_1.1fr] lg:gap-24">
+          <div className="reveal"><div className="section-label light-label">07 / CONTACT</div><h2 className="display-heading mt-8 max-w-2xl text-[clamp(3.2rem,7vw,7.8rem)]">Tell us what you&apos;re building.</h2><p className="mt-8 max-w-md text-base leading-8 text-black/60">We&apos;ll respond within one business day with an initial assessment.</p><PhotoSlot label="ENGINEERS AT WORK" caption="Intended image / engineers at work" meta="NUECLUE · BENGALURU" className="mt-14 min-h-[16rem] bg-[#16161A]" /></div>
           <div className="reveal delay-2">
             {submitted ? (
-              <div className="flex min-h-[24rem] flex-col justify-center border border-[#173b34]/20 bg-[#e4e6c6] p-8 md:p-10" data-testid="status-contact-success">
-                <div className="grid h-12 w-12 place-items-center bg-[#d7f997] text-[#173b34]"><Check size={22} /></div>
-                <h3 className="mt-8 text-2xl font-semibold tracking-[-.05em]">Message received.</h3>
-                <p className="mt-3 max-w-sm text-sm leading-6 text-[#173b34]/65">Thank you for reaching out. We'll be in touch within one business day.</p>
-                <button type="button" onClick={() => setSubmitted(false)} data-testid="button-send-another" className="mt-8 inline-flex w-fit items-center gap-2 border-b border-[#173b34] pb-1 text-sm font-semibold">Send another message <ArrowUpRight size={15} /></button>
-              </div>
+              <div className="flex min-h-[27rem] flex-col justify-center border border-black/15 bg-[#16161A] p-8 text-[#EDEBE6] md:p-12" data-testid="status-contact-success"><div className="grid h-12 w-12 place-items-center bg-[#FF5A1F] text-[#0B0B0C]"><Check size={22} /></div><h3 className="mt-8 font-display text-3xl font-semibold tracking-[-.04em]">Message received.</h3><p className="mt-4 max-w-sm text-sm leading-7 text-[#8C8A85]">Thank you for reaching out. We&apos;ll be in touch within one business day.</p><button type="button" onClick={() => setSubmitted(false)} data-testid="button-send-another" className="arrow-link mt-9 w-fit text-[#EDEBE6]">Send another message <ArrowUpRight size={16} /></button></div>
             ) : (
-              <form onSubmit={handleSubmit} className="border border-[#173b34]/20 bg-[#e4e6c6] p-6 md:p-10">
-                <div className="grid gap-6">
-                  <label className="grid gap-2 text-sm font-medium">Your name<input required name="name" data-testid="input-contact-name" className="border-b border-[#173b34]/30 bg-transparent px-0 py-3 text-base outline-none transition-colors placeholder:text-[#173b34]/35 focus:border-[#27896c]" placeholder="How should we address you?" /></label>
-                  <label className="grid gap-2 text-sm font-medium">Work email<input required type="email" name="email" data-testid="input-contact-email" className="border-b border-[#173b34]/30 bg-transparent px-0 py-3 text-base outline-none transition-colors placeholder:text-[#173b34]/35 focus:border-[#27896c]" placeholder="you@company.com" /></label>
-                  <label className="grid gap-2 text-sm font-medium">What are you building?<textarea required name="message" rows={4} data-testid="input-contact-message" className="resize-none border-b border-[#173b34]/30 bg-transparent px-0 py-3 text-base outline-none transition-colors placeholder:text-[#173b34]/35 focus:border-[#27896c]" placeholder="A little context goes a long way." /></label>
-                  <button type="submit" data-testid="button-submit-contact" className="mt-3 inline-flex w-full items-center justify-between bg-[#173b34] px-5 py-4 text-left text-sm font-semibold text-[#f7f2e8] transition-colors hover:bg-[#27896c]">Send enquiry <ArrowUpRight size={18} /></button>
+              <form onSubmit={handleSubmit} className="border border-black/15 bg-[#16161A] p-7 text-[#EDEBE6] md:p-12">
+                <div className="mb-10 font-mono-ui text-[.68rem] uppercase tracking-[.12em] text-[#8C8A85]">Start with the useful details.</div>
+                <div className="grid gap-8">
+                  <label className="grid gap-2 text-sm text-[#8C8A85]">Your name<input required name="name" data-testid="input-contact-name" className="form-field text-[#EDEBE6] placeholder:text-white/25" placeholder="How should we address you?" /></label>
+                  <label className="grid gap-2 text-sm text-[#8C8A85]">Work email<input required type="email" name="email" data-testid="input-contact-email" className="form-field text-[#EDEBE6] placeholder:text-white/25" placeholder="you@company.com" /></label>
+                  <label className="grid gap-2 text-sm text-[#8C8A85]">What are you building?<textarea required name="message" rows={4} data-testid="input-contact-message" className="form-field resize-none text-[#EDEBE6] placeholder:text-white/25" placeholder="A little context goes a long way." /></label>
+                  <button type="submit" data-testid="button-submit-contact" className="orange-button mt-2 w-full">Book a consultation <ArrowUpRight size={17} /></button>
                 </div>
               </form>
             )}
@@ -360,29 +366,20 @@ function Contact() {
 }
 
 function Footer() {
+  const columns = [
+    { heading: 'Services', links: [['Enterprise AI', '#services'], ['AI Agents', '#services'], ['Startup Product Engineering', '#services'], ['GPU Flex', '#gpu-flex'], ['GPU Labs', '#who-we-work-with']] },
+    { heading: 'Company', links: [['About', '#what-we-do'], ['Our Work', '#what-we-do'], ['Insights', '#capabilities'], ['Careers', '#contact'], ['FAQ', '#contact'], ['Contact', '#contact']] },
+    { heading: 'Legal', links: [['Privacy Policy', '#contact'], ['Terms of Use', '#contact']] },
+  ];
   return (
-    <footer className="bg-[#173b34] py-12 text-[#f7f2e8]">
+    <footer className="bg-[#0B0B0C] py-16 text-[#EDEBE6] md:py-24">
       <div className="content-width">
-        <div className="grid gap-12 border-b border-[#d6dbcf]/20 pb-12 md:grid-cols-[1.5fr_1fr_1fr]">
-          <div>
-            <Logo light />
-            <p className="mt-5 max-w-xs text-sm leading-6 text-[#d6dbcf]/60">Applied AI engineering for organisations building what comes next.</p>
-          </div>
-          <div>
-            <div className="font-mono-ui text-[.66rem] uppercase tracking-[.15em] text-[#d7f997]">Find us</div>
-            <div className="mt-5 flex items-center gap-3 text-sm text-[#d6dbcf]/70"><MapPin size={15} /> Bengaluru, India</div>
-            <div className="mt-3 flex items-center gap-3 text-sm text-[#d6dbcf]/70"><Phone size={15} /> +91 00000 00000</div>
-          </div>
-          <div>
-            <div className="font-mono-ui text-[.66rem] uppercase tracking-[.15em] text-[#d7f997]">Talk to us</div>
-            <a href="mailto:contact@nueclue.com" data-testid="link-footer-email" className="mt-5 flex items-center gap-3 text-sm text-[#d6dbcf]/70 hover:text-[#d7f997]"><Mail size={15} /> contact@nueclue.com</a>
-            <a href="#services" data-testid="link-footer-services" className="mt-3 flex items-center gap-3 text-sm text-[#d6dbcf]/70 hover:text-[#d7f997]"><Layers3 size={15} /> Services</a>
-          </div>
+        <div className="border-b border-white/15 pb-16"><div className="section-label">NUECLUE / AI ENGINEERING AND GPU INFRASTRUCTURE</div><h2 className="display-heading mt-8 text-[clamp(4rem,12vw,12rem)]">Let&apos;s build<span className="text-[#FF5A1F]">.</span></h2></div>
+        <div className="grid gap-12 border-b border-white/15 py-12 sm:grid-cols-2 lg:grid-cols-4">
+          {columns.map((column) => <div key={column.heading}><div className="font-mono-ui text-[.68rem] uppercase tracking-[.14em] text-[#FF5A1F]">{column.heading}</div><div className="mt-5 grid gap-3">{column.links.map(([label, href]) => <a key={label} href={href} data-testid={`link-footer-${label.toLowerCase().replaceAll(' ', '-')}`} className="w-fit text-sm text-[#8C8A85] transition-colors hover:text-[#EDEBE6]">{label}</a>)}</div></div>)}
+          <div><div className="font-mono-ui text-[.68rem] uppercase tracking-[.14em] text-[#FF5A1F]">Contact</div><div className="mt-5 grid gap-3 text-sm text-[#8C8A85]"><a href="mailto:contact@nueclue.com" data-testid="link-footer-email" className="flex items-center gap-2 hover:text-[#EDEBE6]"><Mail size={14} />contact@nueclue.com</a><span className="flex items-center gap-2"><MapPin size={14} />Bengaluru, India</span><span className="flex items-center gap-2"><Phone size={14} />+91 00000 00000</span></div></div>
         </div>
-        <div className="flex flex-col justify-between gap-3 pt-6 font-mono-ui text-[.62rem] uppercase tracking-[.11em] text-[#d6dbcf]/45 sm:flex-row">
-          <span>© 2024 Nueclue. All rights reserved.</span>
-          <a href="#top" data-testid="link-back-to-top" className="inline-flex items-center gap-2 hover:text-[#d7f997]">Back to top <ArrowUpRight size={13} /></a>
-        </div>
+        <div className="flex flex-col justify-between gap-4 pt-6 font-mono-ui text-[.62rem] uppercase tracking-[.1em] text-[#8C8A85] sm:flex-row"><span>© 2026 Nueclue. All rights reserved.</span><a href="#top" data-testid="link-back-to-top" className="arrow-link text-[#8C8A85]">Back to top <ArrowUpRight size={14} /></a></div>
       </div>
     </footer>
   );
@@ -390,29 +387,7 @@ function Footer() {
 
 function Home() {
   useRevealOnScroll();
-  return (
-    <div className="noise min-h-[100dvh]">
-      <Hero />
-      <WhatWeDo />
-      <Services />
-      <WhoWeWorkWith />
-      <Capabilities />
-      <Process />
-      <Contact />
-      <Footer />
-    </div>
-  );
-}
-
-function Router() {
-  return (
-    <RoutedErrorBoundary>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route component={NotFound} />
-      </Switch>
-    </RoutedErrorBoundary>
-  );
+  return <div className="noise min-h-[100dvh]"><Hero /><WhatWeDo /><Services /><GpuFlexSpotlight /><WhoWeWorkWith /><Capabilities /><Process /><Contact /><Footer /></div>;
 }
 
 function RoutedErrorBoundary({ children }: { children: ReactNode }) {
@@ -420,17 +395,12 @@ function RoutedErrorBoundary({ children }: { children: ReactNode }) {
   return <ErrorBoundary resetKey={location}>{children}</ErrorBoundary>;
 }
 
+function Router() {
+  return <RoutedErrorBoundary><Switch><Route path="/" component={Home} /><Route component={NotFound} /></Switch></RoutedErrorBoundary>;
+}
+
 function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
-          <Router />
-        </WouterRouter>
-        <Toaster />
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
+  return <QueryClientProvider client={queryClient}><TooltipProvider><WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}><Router /></WouterRouter><Toaster /></TooltipProvider></QueryClientProvider>;
 }
 
 export default App;
