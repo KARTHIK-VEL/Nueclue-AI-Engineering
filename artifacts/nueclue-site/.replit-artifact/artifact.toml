@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Nueclue"
+description = "A high-trust homepage for Nueclue, an AI engineering firm in Bengaluru helping enterprises, startups, and research institutions build and operate production AI systems and GPU infrastructure."
+version = "1.0.0"
+id = "artifacts/nueclue-site"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19044
+
+[services.development]
+run = "pnpm --filter @workspace/nueclue-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/nueclue-site", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/nueclue-site/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19044"
+BASE_PATH = "/"
