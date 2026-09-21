@@ -1,0 +1,782 @@
+Nueclue Website Content
+Sep 21, 2026 · @karthik
+Sitemap
+The site has 16 pages: 12 in the main site and 4 legal/utility pages linked from the footer. Placeholders in [square brackets] need real details before launch.
+#
+Page
+Where it appears
+1
+Home
+Main navigation
+2
+Services (overview)
+Main navigation
+3
+GPU Flex (product)
+Main navigation + Services
+4
+Enterprise AI Development
+Services dropdown
+5
+AI Agents & Automation
+Services dropdown
+6
+AI Product Engineering for Startups
+Services dropdown
+7
+GPU Labs for Institutions
+Services dropdown + GPU Flex
+8
+Industries
+Main navigation
+9
+Case Studies / Our Work
+Main navigation
+10
+About
+Main navigation
+11
+Blog / Insights
+Main navigation
+12
+Careers
+Footer only
+13
+FAQ
+Footer
+14
+Contact
+Main navigation (button)
+15
+Privacy Policy
+Footer
+16
+Terms of Use
+Footer
+Main navigation: Home · Services ▾ · GPU Flex · Industries · Our Work · About · Insights · [Contact]
+Footer (all pages): Nueclue, AI engineering and GPU infrastructure · Bengaluru, India · [contact@nueclue.com] · [phone]. Services: Enterprise AI · AI Agents · Startup Product Engineering · GPU Flex · GPU Labs. Company: About · Our Work · Insights · Careers · FAQ · Contact. Legal: Privacy Policy · Terms of Use. © 2026 Nueclue.
+1. Home
+Hero
+Headline: Applied AI engineering for enterprises, startups, and research institutions.
+Subheadline: We build LLM applications, agentic systems, and computer vision products, and run GPU Flex, our platform for managed, fully utilised GPU infrastructure.
+Buttons: [Discuss a Project] [View Services]
+What We Do
+Nueclue is an AI engineering firm based in Bengaluru. We take AI from requirement to deployment: model selection, data pipelines, application development, inference optimisation, and production operations. Our clients range from global enterprises to early-stage startups and universities building AI research capacity.
+Services
+Enterprise AI Development Custom AI systems built on LLMs, retrieval-augmented generation (RAG), computer vision, and speech models. We handle fine-tuning, evaluation, integration with ERP and CRM systems, and deployment on cloud, on-premise, or edge. [Learn more →]
+AI Agents & Automation Agentic workflows that act on your business systems. Voice agents for inbound calls and appointment booking, sales agents for lead qualification, and support agents grounded in your internal knowledge base. Multilingual, including Indian languages. [Learn more →]
+AI Product Engineering for Startups For founders at idea stage, we scope, architect, and build the MVP. For startups with a live product, we develop specific AI modules such as recommendation engines, document intelligence, conversational interfaces, and predictive models, delivered as APIs your team can own. [Learn more →]
+GPU Flex: GPU Infrastructure & Utilisation Our platform for NVIDIA GPU servers. Shared, dedicated, and MIG-partitioned allocation, browser-based access through JupyterHub and web terminal, and a live dashboard for utilisation and users. We deploy and manage it on your hardware, so every GPU stays in use. [Explore GPU Flex →]
+Product Spotlight: GPU Flex
+Turn your GPU servers into a shared, managed compute platform.
+• Shared, dedicated, and MIG-partitioned GPU allocation
+• Browser access via JupyterHub, web terminal, and SSH
+• Live dashboard for GPU utilisation, users, and containers
+• Runs on-premise, so your data stays in your network
+[Request a Demo] [Learn More]
+Design note: place a GPU Flex dashboard screenshot beside this section.
+Who We Work With
+Enterprises & MNCs AI product development, process automation, and higher GPU utilisation with GPU Flex for teams running large-scale training and inference.
+Startups Engineering capacity for founders who need to ship an AI product or feature without hiring a full ML team.
+Universities & Colleges Managed GPU labs powered by GPU Flex, with browser-based access, per-user quotas, and preconfigured environments for coursework and research.
+Technical Capabilities
+AI & ML: LLMs, RAG, fine-tuning (LoRA / QLoRA), computer vision, speech recognition and synthesis, multi-agent systems, vector databases
+Infrastructure: GPU Flex platform · NVIDIA DGX and HGX systems · Jetson edge devices · CUDA · MIG · Kubernetes · Slurm · containerised environments
+Deployment: vLLM, TensorRT, Triton Inference Server, MLOps pipelines, cloud, on-premise, and hybrid
+How an Engagement Works
+1. Scoping: we define the problem, success metrics, data availability, and technical constraints.
+2. Architecture: we recommend models, infrastructure, and integration approach, with cost estimates.
+3. Development: we build in two-week sprints with working demos at each stage.
+4. Deployment: we release to production with monitoring and documentation.
+5. Support: we offer ongoing maintenance, model updates, and performance tuning.
+Contact CTA
+Tell us what you're building. We'll respond within one business day with an initial assessment.
+[Book a Consultation]
+2. Services (Overview)
+Page Header
+Headline: Services
+Intro: Four practice areas, one engineering team. Each engagement is scoped to your requirements, data, and infrastructure, whether that's a single AI module or a full production system.
+Enterprise AI Development
+Custom AI systems integrated into how your business already operates.
+Most enterprise AI projects stall between pilot and production. We build for production from the start, with proper evaluation, security controls, and integration into existing systems.
+• LLM applications and internal copilots grounded in company data using RAG
+• Document processing for invoices, contracts, and reports
+• Computer vision for inspection, safety monitoring, and quality control
+• Speech systems for transcription, voice interfaces, and call analytics
+• Predictive models for demand, maintenance, and risk
+[Learn more about Enterprise AI →]
+AI Agents & Automation
+Agents that complete tasks, not just answer questions.
+We build agents that connect to your calendars, CRMs, ticketing tools, and databases, and take action on defined workflows.
+• Voice agents for calls and appointment booking, in English and Indian languages
+• Sales agents for lead qualification and follow-up
+• Support agents grounded in your documentation and past tickets
+• Operations agents for reporting and back-office tasks
+[Learn more about AI Agents →]
+AI Product Engineering for Startups
+Engineering capacity for founders building with AI.
+• Idea to MVP: feasibility, architecture, MVP build, launch, and iteration
+• AI module development: recommendation engines, conversational AI, document and image intelligence, speech features, and predictive models, delivered as documented APIs with full source code handover
+Engagement models: fixed-scope builds, module contracts, or monthly retainers.
+[Learn more about Startup Product Engineering →]
+GPU Flex: GPU Infrastructure & Utilisation
+Setup, access management, and optimisation for NVIDIA GPU environments.
+GPU Flex is our platform for turning GPU servers into a shared, managed compute environment, deployed and supported on your hardware.
+• Design and deployment: capacity planning, NVIDIA DGX, HGX, and workstation setup, CUDA and container stack
+• Utilisation: shared, dedicated, and MIG-partitioned allocation, Slurm or Kubernetes scheduling, per-team quotas
+• Access: JupyterHub, web terminal, and SSH, with preconfigured PyTorch, TensorFlow, and Hugging Face environments
+• Visibility: live dashboard for utilisation, memory, users, and containers
+• Inference optimisation: TensorRT, vLLM, and quantisation to serve more requests per GPU
+For enterprises and MNCs, startups, and universities.
+[Learn more about GPU Flex →] · [GPU Labs for Institutions →]
+Closing CTA
+Not sure which service fits? Send us a short description of your problem or infrastructure. We'll recommend an approach and a realistic scope.
+[Book a Consultation]
+3. GPU Flex (Product Page)
+Hero
+Headline: GPU Flex: every GPU, fully used.
+Subheadline: GPU Flex turns NVIDIA GPU servers into a shared, managed compute platform. Users get instant browser-based access, administrators get full control and live visibility, and your hardware gets used the way it should be.
+Buttons: [Request a Demo] [Talk to Our Team]
+The Problem
+GPU servers are among the largest technology investments an organisation makes, yet utilisation is often low:
+• One user or team occupies an entire GPU for a small workload
+• New users wait days for environment setup and access
+• No scheduling or allocation rules, so GPUs are either idle or contested
+• Administrators have no real-time view of who is using what
+• No usage data to justify spend or plan capacity
+GPU Flex solves these at the platform level.
+What GPU Flex Does
+Flexible GPU allocation
+• Shared GPUs for notebooks, coursework, and light experimentation
+• Dedicated GPUs for training runs and research that need full performance
+• MIG-partitioned GPUs that split one physical GPU into multiple isolated instances, each with its own memory and compute
+The mix is configurable and can change as demand changes.
+Multiple access methods
+• JupyterHub: notebooks in the browser, with no installation
+• Web Terminal: a full Linux terminal from any browser
+• SSH / SFTP: direct access for advanced users and file transfer
+• Admin Dashboard: central control for administrators
+Containerised environments: each user works in an isolated container with preconfigured PyTorch, TensorFlow, Hugging Face, and CUDA libraries.
+Shared storage: centralised network storage for datasets, models, and project files.
+Live monitoring dashboard
+• Real-time utilisation, memory, and temperature for every GPU
+• Active users, containers, and sessions at a glance
+• Allocation view showing shared, dedicated, and MIG assignments
+• Usage trends and history for reporting and capacity planning
+Smart utilisation alerts: GPU Flex flags contention based on actual load, such as high compute utilisation or VRAM pressure, rather than simply counting users.
+User and access management: create users, assign GPUs or MIG instances, set access levels, and manage sessions from one place.
+Who GPU Flex Is For
+Enterprises & MNCs: consolidate GPU servers into one managed pool shared across teams, track usage by team, and get more from existing hardware before buying more.
+Startups: run training, fine-tuning, and inference on your own GPUs with the convenience of a cloud platform, without cloud pricing.
+Universities & Research Institutions: reliable browser-based GPU access for hundreds of students and researchers. [See GPU Labs for Institutions →]
+Built on NVIDIA Technology
+GPU Flex runs on NVIDIA data centre GPUs, including DGX-class systems, using NVIDIA drivers and CUDA, Multi-Instance GPU (MIG), NGC containers and Docker, with multi-node support for scaled deployments.
+Deployment & Services
+GPU Flex is delivered as a managed deployment on your hardware, on-premise, with your data staying inside your network.
+1. Assessment: we review your hardware, users, workloads, and current utilisation.
+2. Allocation design: we plan the shared, dedicated, and MIG configuration.
+3. Deployment: we set up the platform, access methods, storage, and dashboard.
+4. Onboarding: we train administrators and onboard users.
+5. Managed support: monitoring, maintenance, updates, and allocation tuning.
+Already have GPUs that are underused? We start with a utilisation audit of your existing setup and show where capacity is being lost, before recommending any changes.
+Why GPU Flex
+• Higher utilisation: partitioning and flexible allocation keep GPUs working
+• Faster onboarding: users start in minutes through the browser
+• Full visibility: live dashboards replace guesswork
+• Data stays on-premise: no data leaves your infrastructure
+• Operated by engineers who run it: we administer production GPU Flex environments ourselves
+FAQ
+Does GPU Flex require specific hardware? It is designed for NVIDIA data centre GPUs. MIG requires supported GPUs such as A100, H100, H200, and B200.
+Can we change allocations later? Yes. Shared, dedicated, and MIG configurations can be adjusted as usage changes.
+Is it a cloud service? No. GPU Flex runs on your own hardware.
+How many users can share one server? It depends on the GPUs and workloads. We size this during assessment.
+Closing CTA
+See how much more your GPUs can do. Book a demo of the GPU Flex dashboard, or request a utilisation audit of your current setup.
+[Request a Demo] [Request an Audit]
+4. Enterprise AI Development
+Hero
+Headline: Enterprise AI Development
+Subheadline: Production-grade AI systems built on your data, integrated with your existing software, and deployed where your security requirements demand.
+Buttons: [Discuss Your Requirement] [See Our Work]
+Why Enterprise AI Projects Stall
+Most organisations have run an AI pilot. Far fewer have one running in production. The usual blockers:
+• Proofs of concept built on sample data that fail on real data
+• No evaluation framework, so accuracy can't be measured or trusted
+• Difficulty integrating with ERP, CRM, and legacy systems
+• Data-privacy concerns about sending sensitive data to external APIs
+• No plan for monitoring, maintenance, or model updates after launch
+We build with these constraints in mind from the first sprint.
+What We Build
+LLM applications and internal copilots: assistants that answer questions from your policies, manuals, contracts, and internal knowledge, grounded in your documents using RAG so answers trace back to sources.
+Document intelligence: extraction, classification, and summarisation of invoices, purchase orders, contracts, forms, and reports, including scanned documents.
+Conversational analytics: natural-language access to business data. Managers ask questions by chat or voice and get answers with charts.
+Computer vision systems: defect detection, safety and PPE monitoring, people counting, access control, and visual inspection, on cloud or edge devices.
+Speech and voice systems: transcription, call analytics, voice interfaces, and multilingual speech processing, including Indian languages.
+Predictive models: demand forecasting, predictive maintenance, churn prediction, and risk scoring.
+Our Approach
+1. Use-case assessment: where AI will deliver measurable value, and where it won't.
+2. Data and architecture review: data sources, quality, access, and deployment model.
+3. Model selection: open-source models (Llama, Mistral, Qwen) and commercial APIs evaluated against accuracy, latency, cost, and privacy.
+4. Build and evaluate: two-week sprints with test datasets and accuracy benchmarks.
+5. Integrate and deploy: API integration with your systems on cloud, on-premise, or hybrid.
+6. Monitor and improve: performance tracking, model updates, and maintenance.
+Deployment Options
+• Cloud: fastest to launch, scales on demand
+• On-premise: data never leaves your infrastructure, suited to healthcare, finance, and regulated sectors
+• Hybrid: sensitive processing on-premise, other workloads in the cloud
+• Edge: models on devices at factories, gates, or remote sites for low-latency processing
+Technology Stack
+• Models: commercial LLM APIs, Llama, Mistral, Qwen, Whisper, YOLO, and custom-trained models
+• Frameworks: PyTorch, Hugging Face, LangChain, LlamaIndex
+• Data: vector databases, SQL and NoSQL databases, data pipelines
+• Serving: vLLM, TensorRT, Triton Inference Server, FastAPI
+• Infrastructure: NVIDIA GPUs, Docker, Kubernetes, major cloud platforms
+Security and Governance
+• Role-based access control on all AI applications
+• Audit logs for queries and outputs
+• Guardrails that restrict responses to approved topics and data
+• Private deployments with no data sent to third-party model providers, where required
+• Data handling aligned with India's DPDP Act
+FAQ
+How long does a typical project take? A focused use case usually reaches production in 6 to 12 weeks. Larger projects are delivered in phases.
+Do we need a lot of data to start? Not always. Many LLM and RAG applications work with existing documents.
+Who owns the code and models? You do. We hand over source code, documentation, and trained model weights.
+Can you work with our in-house IT team? Yes, including knowledge transfer so they can maintain the system.
+Closing CTA
+Have a process that AI should be handling? Tell us about it. We'll assess feasibility and recommend a realistic approach.
+[Book a Consultation]
+5. AI Agents & Automation
+Hero
+Headline: AI Agents & Automation
+Subheadline: Agents that connect to your business systems and complete tasks: answering calls, booking appointments, qualifying leads, and resolving support queries, around the clock.
+Buttons: [Discuss Your Use Case] [See a Case Study]
+Agents vs Chatbots
+A chatbot answers questions. An agent takes action. AI agents understand requests in natural language, decide what needs to be done, and act on your systems: checking availability, creating bookings, updating CRM records, sending confirmations, and escalating to a person when needed.
+Agents We Build
+Voice Agents
+• Answer inbound calls and make outbound reminder calls
+• Book, reschedule, and cancel appointments in real time
+• Handle common questions on pricing, timings, and location
+• Speak English, Tamil, Hindi, and other Indian languages
+• Transfer to staff with full call context when needed
+Common in hospitals, clinics, diagnostic centres, salons, service centres, and venues.
+Sales & Lead Agents
+• Respond to inbound leads within seconds on web, WhatsApp, or phone
+• Qualify leads with structured questions
+• Run automated follow-up sequences
+• Book meetings into your sales team's calendar
+• Log every interaction in your CRM
+Customer Support Agents
+• Answer questions from your documentation and past tickets
+• Track orders, handle returns, and update customer records
+• Escalate complex cases to human agents with full context
+• Available on web chat, WhatsApp, email, and phone
+Operations Agents
+• Generate and distribute daily or weekly reports
+• Reconcile data across systems
+• Process routine requests such as leave, approvals, and data entry
+• Monitor metrics and send alerts
+How Our Agents Work
+1. Understand: speech recognition and LLMs interpret the request, including accents, regional languages, and mixed-language conversations.
+2. Decide: the agent determines the right action based on your business rules.
+3. Act: it calls your systems through APIs: calendars, CRMs, booking platforms, databases.
+4. Confirm: it confirms the outcome by voice, SMS, WhatsApp, or email.
+5. Hand off: it transfers to a person when the request falls outside defined boundaries.
+Built for Reliability
+• Guardrails: agents act only within the tasks and information you approve
+• Human handoff: clear escalation rules for complex or sensitive cases
+• Conversation logs: every interaction recorded and searchable
+• Performance dashboards: resolution rate, handoff rate, call volume, and response times
+• Continuous improvement: regular review of failed conversations
+Integrations
+Google Calendar and Outlook, CRMs, WhatsApp Business, telephony and IVR systems, hospital and clinic management software, e-commerce platforms, and custom databases via API.
+Implementation Process
+1. Workflow mapping: the conversations and actions the agent needs to handle.
+2. Integration setup: calendar, CRM, telephony, and other systems.
+3. Build and test: tested against real conversation scenarios.
+4. Pilot launch: limited volume, with every interaction monitored.
+5. Full rollout: scale-up with ongoing monitoring and tuning.
+FAQ
+Will the agent sound robotic? We use modern speech synthesis that sounds natural, with conversation flows designed around how your customers speak.
+Can it handle regional languages? Yes, including mixed-language conversations.
+What if the agent doesn't understand? It asks a clarifying question, and if still unsure, transfers to staff with the conversation context.
+How long does setup take? A single-workflow agent such as appointment booking typically launches in 3 to 6 weeks.
+Closing CTA
+Which task would you hand over first? Tell us about your highest-volume customer interaction. We'll show you how an agent would handle it.
+[Book a Demo]
+6. AI Product Engineering for Startups
+Hero
+Headline: AI Product Engineering for Startups
+Subheadline: We work as your AI engineering team, turning founder ideas into working products and adding AI capabilities to products already in the market.
+Buttons: [Tell Us Your Idea] [See Engagement Models]
+Two Ways We Work With Startups
+Idea to MVP: you have a product idea and a clear customer problem, but no technical team. We take you from concept to a working product your first users can adopt.
+AI Module Development: you have a live product and need a specific AI capability. We build it as a standalone module your team can integrate, own, and extend.
+Idea to MVP
+Stage 1: Technical discovery (1–2 weeks)
+• Validate technical feasibility of the idea
+• Define core features for the first version, and what to leave out
+• Choose models, stack, and infrastructure sized to your budget
+• Deliver a product roadmap with timeline and cost
+Stage 2: MVP build (6–12 weeks)
+• Backend, AI pipeline, and web or mobile front end
+• Weekly demos so you see progress and adjust priorities
+• Analytics built in to track early user behaviour
+Stage 3: Launch and iterate
+• Deployment to production
+• Improvements based on real user feedback
+• Support for demo days, pilots, and investor presentations
+What you get: a working product, full source code, technical documentation, and a clear plan for scaling.
+AI Module Development
+• Recommendation engines: personalised product, content, or service suggestions
+• Conversational AI: chat and voice assistants inside your app
+• Document intelligence: extraction from uploaded files, forms, and IDs
+• Image and video AI: classification, detection, search, and visual quality checks
+• Speech features: transcription, voice commands, and text-to-speech in multiple languages
+• Search and RAG: semantic search and AI answers across your product's content
+• Predictive models: scoring, forecasting, and anomaly detection
+Every module comes with source code, API documentation, and a handover session with your team.
+Built for Startup Constraints
+• Budget-aware model choices: APIs for speed or open-source models for lower running costs, with a plan to scale
+• Speed over perfection: we ship the smallest version that proves value, then improve on real usage
+• You own everything: full IP and source code ownership, no lock-in
+• Built to hand over: clean code and documentation for your future in-house engineers
+Engagement Models
+Model
+What it is
+Best for
+Fixed-Scope Build
+Defined MVP or module with agreed deliverables, timeline, and cost
+Clear requirements
+Monthly Retainer
+Dedicated engineering hours each month
+Ongoing development and iteration
+Discovery Sprint
+Short paid engagement producing a feasibility review and technical roadmap
+Validating before a full build
+FAQ
+I'm non-technical. Can I still work with you? Yes. We explain technical decisions in plain terms and guide you through each choice.
+Do you sign NDAs? Yes, before any detailed discussion of your idea.
+Who owns the product? You do: all source code, designs, and IP.
+Can you help after launch? Yes, through retainers for maintenance, new features, and scaling.
+Closing CTA
+Have an idea worth building? Share it with us under NDA. We'll tell you honestly what it takes to build it.
+[Tell Us Your Idea]
+7. GPU Labs for Institutions
+Hero
+Headline: GPU Labs for Colleges and Universities
+Subheadline: We design, deploy, and manage NVIDIA-based AI labs powered by GPU Flex, so every student and researcher can use GPU compute from the browser, with no installation or setup.
+Buttons: [Plan Your Lab] [Download Brochure]
+The Problem Most Institutions Face
+Many colleges invest in GPU hardware, but the lab ends up underused:
+• Only a few users can access the system at a time
+• Students struggle with drivers, CUDA versions, and environment setup
+• No scheduling, so one long job blocks everyone else
+• Faculty lack hands-on training to build coursework around the hardware
+• No usage data to justify the investment or plan expansion
+A GPU lab only delivers value when it's accessible, shared fairly, and used every day.
+What We Deliver
+Lab design: assessment of programs, student strength, and research needs; hardware sized to concurrent users and workloads; budget-aligned configurations.
+Deployment: installation of NVIDIA GPU systems; driver, CUDA, and NGC container stack; network, storage, and user authentication.
+Browser-based access with GPU Flex
+• Students log in from any campus computer or laptop
+• JupyterLab, VS Code, and terminal environments in the browser
+• Preconfigured PyTorch, TensorFlow, Hugging Face, and OpenCV environments
+Resource sharing and scheduling
+• MIG partitioning and shared GPUs, so many students work simultaneously
+• Per-user and per-batch quotas
+• Job queues for long-running training and research workloads
+• Dedicated GPUs for faculty and research scholars
+Monitoring and reporting: real-time utilisation dashboards; usage reports by department, batch, and user; data to support accreditation documentation and budget planning.
+Training and enablement: faculty development programs, hands-on student workshops, and lab exercises aligned to AI, ML, data science, and computer vision coursework.
+Ongoing support: remote administration, updates, troubleshooting, and annual maintenance contracts.
+Lab Configurations
+Configuration
+For
+Typical setup
+Starter Lab
+Departments beginning AI coursework
+Compact NVIDIA systems such as DGX Spark or GPU workstations
+Standard Lab
+Full AI/ML programs and department-wide use
+Multi-GPU servers with MIG, scheduling, and quotas
+Research Lab
+Postgraduate research, PhD scholars, funded projects
+Enterprise-grade NVIDIA DGX systems
+Edge AI & Robotics Add-on
+Embedded AI and robotics projects
+NVIDIA Jetson-based kits
+Every configuration is customised. Share your requirements for a recommended setup.
+Who Uses the Lab
+• Students: coursework, mini projects, and final-year projects on real GPU hardware
+• Faculty: practical AI courses with ready environments
+• Research scholars: training and fine-tuning without waiting for shared hardware
+• Administrators: utilisation tracking, access control, and impact reporting
+How We Work With Institutions
+1. Requirement study: programs, student numbers, existing hardware, and budget.
+2. Lab proposal: configuration, access model, training plan, and cost estimate.
+3. Deployment: hardware, software stack, and GPU Flex setup.
+4. Training: faculty development and student onboarding.
+5. Handover and support: documentation, admin training, and maintenance.
+Already Have GPU Hardware?
+We also optimise existing labs. If your GPUs are underused or hard to access, we audit the setup, add GPU Flex access and scheduling, and train your faculty, without buying new hardware.
+[Request a Lab Audit]
+Plan Your Lab (Form)
+Institution Name · Contact Person · Designation · Email · Phone · Departments involved · Approximate number of users · Existing GPU hardware · Budget range (optional) · Message
+[Submit]
+8. Industries
+Page Header
+Headline: Industries We Serve
+Intro: AI delivers the most value when it's built around the specific workflows, data, and regulations of an industry. These are the sectors where we build and deploy AI systems and GPU infrastructure.
+Healthcare
+Hospitals and clinics face high patient volumes, heavy administrative workload, and strict data-privacy expectations.
+• AI voice agents for appointment booking, rescheduling, and reminders
+• Patient query handling in English and regional languages
+• Medical document processing for prescriptions, reports, and discharge summaries
+• Front-desk and call-centre automation with human handoff
+On-premise and private deployments are available where patient data must stay within the organisation.
+Education & Research
+Colleges and universities need AI infrastructure that hundreds of students can share, and programs that turn hardware into practical skills.
+• Managed GPU labs on GPU Flex with browser-based access
+• GPU scheduling and quotas for coursework and research
+• Automated assessment and grading for programming and AI assignments
+• Faculty development and student training programs
+• Edge AI and robotics labs using NVIDIA Jetson
+[See GPU Labs for Institutions →]
+Manufacturing
+Factories generate large volumes of visual and sensor data that can improve safety, quality, and uptime.
+• Computer vision for defect detection and quality inspection
+• Safety monitoring: PPE compliance and restricted-zone alerts
+• Gate and headcount systems for security and emergency evacuation
+• Predictive maintenance using equipment and sensor data
+• Edge AI deployment on-site for low-latency processing
+Retail & E-commerce
+Retailers compete on personalisation, customer response time, and inventory accuracy.
+• Product recommendation and personalisation engines
+• AI support agents for order tracking, returns, and product questions
+• Demand forecasting and inventory planning
+• Catalogue enrichment: automated descriptions, tagging, and image processing
+• Conversational sales assistants on WhatsApp and web
+Financial Services
+Banks, NBFCs, and fintech firms handle document-heavy processes and high customer volumes under regulatory oversight.
+• Document intelligence for KYC, loan applications, and statements
+• Customer support agents for account and product queries
+• Natural-language analytics and reporting
+• Risk and scoring models
+• Private LLM deployments for sensitive financial data
+Multi-Business Owners & SMEs
+Growing businesses often have data spread across branches, tools, and teams, with no single view of performance.
+• Unified dashboards across multiple businesses or branches
+• Ask-your-data interfaces: query business data by chat or voice, with instant charts
+• Automated reports and alerts on key metrics
+• AI agents for lead follow-up, bookings, and customer communication
+Technology Companies & Startups
+Tech teams need to add AI capabilities or scale GPU infrastructure without slowing their product roadmap.
+• AI module development: recommendations, conversational AI, vision, speech
+• MVP development for AI-first products
+• GPU Flex deployment, utilisation audits, and inference optimisation
+• LLM fine-tuning and deployment on private infrastructure
+[See AI Product Engineering for Startups →]
+Closing CTA
+Don't see your industry? Our work starts with the problem, not the sector. Tell us what you're trying to solve.
+[Contact Us]
+9. Case Studies / Our Work
+Publishing note: clients are anonymised and outcomes are placeholders. Replace them with measured numbers, and name clients only with written permission.
+Page Header
+Headline: Our Work
+Intro: A selection of AI and infrastructure projects delivered for businesses across India. Client names are withheld where confidentiality applies.
+Case Study 1: GPU Infrastructure Management for NVIDIA DGX Servers
+Client: AI infrastructure company, Coimbatore · Service: GPU Flex / GPU Infrastructure & Utilisation
+Challenge: The client operates NVIDIA DGX servers used by multiple internal and external users. They needed reliable day-to-day administration, controlled user access, and visibility into how GPU capacity was being used.
+Approach
+• Configured and maintained the DGX software stack, including drivers, CUDA, and NGC containers
+• Set up shared, dedicated, and MIG-partitioned GPU allocation for different user groups
+• Provided access through JupyterHub, web terminal, and SSH
+• Implemented a live dashboard for GPU utilisation, memory, users, and containers
+• Established routine maintenance, troubleshooting, and update processes
+Outcome
+• [e.g. GPU utilisation increased from X% to Y%]
+• [e.g. New users onboarded in minutes instead of hours]
+• [e.g. Reduced downtime and faster issue resolution]
+Technologies: NVIDIA DGX · CUDA · MIG · NGC Containers · Docker · JupyterHub
+Case Study 2: AI Appointment Booking System for Clinics and Hospitals
+Client: Healthcare technology partner · Service: AI Agents & Automation
+Challenge: Clinics and hospitals handle a high volume of appointment calls and messages. Front-desk staff spend much of their day booking, rescheduling, and answering routine questions, and patients face wait times and missed calls.
+Approach
+• Designed an AI booking agent that understands patient requests in natural language
+• Integrated with doctor schedules and slot availability in real time
+• Built flows for booking, rescheduling, cancellation, and common patient queries
+• Added handoff to front-desk staff for cases requiring human attention
+Outcome
+• [e.g. X% of appointment requests handled without staff involvement]
+• [e.g. Booking available 24/7]
+• [e.g. Reduced front-desk call load]
+Technologies: LLMs · Speech recognition and synthesis · Scheduling APIs · Conversational AI
+Case Study 3: Conversational Business Analytics for a Multi-Business Owner
+Client: Business owner operating multiple companies · Service: Enterprise AI Development
+Challenge: The client runs several businesses, each with separate data and reports. Getting a combined view of performance meant switching between systems and waiting for manually prepared reports.
+Approach
+• Built a unified owner's app that consolidates data from all businesses
+• Added a natural-language interface, via chat and voice, for questions like "Compare this month's sales across all branches"
+• Generated charts and visual summaries automatically from each query
+• Enabled filtering by business, time period, and metric
+Outcome
+• [e.g. Business insights available in seconds instead of days]
+• [e.g. Single dashboard replacing X separate reports]
+Technologies: LLMs · Text-to-query pipelines · Speech interface · Data visualisation · Mobile/web app
+Closing CTA
+Have a similar challenge? Tell us about it. We'll share how we'd approach it.
+[Discuss Your Project]
+10. About
+Page Header
+Headline: About Nueclue
+Intro: Nueclue is an AI engineering firm based in Bengaluru, India. We build AI applications and the GPU infrastructure behind them for enterprises, startups, and academic institutions.
+Our Focus
+We started Nueclue to close a gap we saw repeatedly. Organisations invest in AI models, tools, and expensive GPU hardware, but struggle to turn that investment into systems that run reliably in production.
+Our work sits across the full stack: the application layer, where models meet business workflows, and the infrastructure layer, where compute is provisioned, shared, and optimised through our GPU Flex platform. Handling both lets us make practical decisions on model size, deployment target, and hardware utilisation that single-layer vendors often miss.
+What Sets Our Work Apart
+• Production-first engineering: evaluation metrics, monitoring, access control, and documentation are part of every build
+• Application and infrastructure under one team: the engineers who build your AI system understand the GPUs it runs on
+• Practical model choices: open-source models on your hardware or commercial APIs, based on data sensitivity, latency, accuracy, and budget
+• Code and knowledge handover: clients receive source code, documentation, and walkthroughs. You own what we build.
+Founder
+Karthik Velusamy, Founder & Principal AI Engineer
+Karthik is an AI engineer with hands-on experience across AI lab deployments, GPU server infrastructure, edge AI, and end-to-end AI product development. His work spans computer vision, natural language processing, voice AI, and cross-platform applications, along with designing and delivering AI training programs for engineering colleges.
+He has set up and administered enterprise NVIDIA GPU environments, built browser-based GPU access platforms for multi-user labs, and developed AI products from concept through deployment.
+[LinkedIn] · [karthikvelusamy.com]
+How We Work With Clients
+• Clear scope before commitment: problem definition, data review, and a realistic estimate of effort and outcomes
+• Short delivery cycles: two-week sprints with working demos
+• Direct access to engineers: you work with the people building your system
+• Long-term support: maintenance, model updates, and infrastructure tuning as ongoing retainers
+Mission and Vision
+Mission: to make AI and high-performance compute practical and cost-effective for organisations of every size, from a two-person startup to a university lab serving hundreds of students.
+Vision: a future where every business, startup, and institution can build with AI, without infrastructure or expertise barriers.
+Closing CTA
+Working on an AI initiative or GPU deployment? We'd like to hear about it.
+[Get in Touch]
+11. Blog / Insights
+Publishing note: launch with 3 or 4 articles, starting with the GPU idle article and the GPU lab buyer's guide.
+Page Header
+Headline: Insights
+Intro: Practical articles on building AI systems, deploying agents, and running GPU infrastructure efficiently, written from real project experience.
+Category tabs: All · GPU Infrastructure · AI Agents · LLMs & RAG · AI for Startups · AI in Education
+Launch Articles
+Category
+Title
+Summary
+GPU Infrastructure
+Why Your GPUs Are Sitting Idle, and How to Fix It
+Common causes of low utilisation (single-user allocation, no scheduling, setup friction) and the practical fix for each
+GPU Infrastructure
+MIG vs Time-Slicing: Sharing NVIDIA GPUs Across Multiple Users
+Isolation, performance, supported hardware, and which method suits teaching labs, research, and inference
+GPU Infrastructure
+Monitoring GPU Utilisation with DCGM, Prometheus, and Grafana
+Setting up dashboards for usage, memory, temperature, and cost per team
+AI Agents
+Building a Voice Agent for Appointment Booking: What Actually Matters
+Speech recognition on noisy calls, regional languages, calendar integration, and human handoff
+AI Agents
+AI Agents vs Chatbots: What's the Difference for Your Business?
+How agents act in business systems, where they deliver ROI, and when a chatbot is enough
+LLMs & RAG
+RAG vs Fine-Tuning: Which Does Your Enterprise Data Need?
+When to use retrieval, fine-tuning, or both, with cost and accuracy trade-offs
+LLMs & RAG
+Ask Your Business Data: Natural-Language Analytics with LLMs
+How text-to-query systems deliver answers and charts, and the guardrails that keep them accurate
+AI for Startups
+From Idea to AI MVP: A Roadmap for Non-Technical Founders
+Validation, model choices, budget, and what to build first
+AI for Startups
+Build, Buy, or API? Choosing the Right AI Approach for Your Startup
+Commercial APIs vs open-source models vs custom training
+AI in Education
+Planning a GPU Lab for Your College: A Buyer's Guide
+Sizing a lab by student strength and courses, access models, and mistakes that leave labs underused
+Newsletter Signup
+Get new articles in your inbox One email a month on AI engineering and GPU infrastructure. No spam.
+[Email address] [Subscribe]
+By subscribing, you agree to our Privacy Policy.
+12. Careers
+Publishing note: link from the footer only until you are actively hiring. State clearly whether internships are paid.
+Page Header
+Headline: Work With Us
+Intro: Nueclue is a remote-first AI engineering firm. We work on real production problems: AI agents, LLM applications, computer vision systems, and GPU infrastructure for enterprises, startups, and universities. We're looking for engineers who like shipping working systems.
+How We Work
+• Remote-first: work from anywhere in India, collaborating over chat, video calls, and shared repositories
+• Real projects from day one: client systems that go into production, not internal demos
+• Small team, direct impact: no layers of management; you work directly with the founder
+• Hands-on with serious hardware: NVIDIA GPU systems, from DGX servers to Jetson edge devices
+Areas We Hire For
+• AI / ML Engineering: LLM applications, RAG pipelines, fine-tuning, computer vision, speech systems
+• AI Agent Development: voice and chat agents, workflow automation, API integrations
+• GPU & Infrastructure Engineering: Linux administration, CUDA, containers, Kubernetes, Slurm, GPU monitoring
+• Full-Stack & Mobile Development: web and mobile front ends, backend APIs, dashboards for AI products
+Ways to Join
+Freelance / Contract Engineers: experienced engineers who want project-based work alongside us, scoped per project.
+Internships: final-year students and recent graduates in AI, data science, or computer science work on live projects under guidance, with a certificate and recommendation on completion.
+Full-Time Roles: posted here as they open.
+Current Openings
+There are no open full-time positions right now. We're always interested in hearing from strong engineers and students for freelance and internship opportunities.
+Apply (Form)
+Name · Email · Phone · Role type (Freelance / Internship / Full-time) · Area of interest · LinkedIn or GitHub profile · Resume (upload) · A short note about a project you're proud of
+[Submit Application]
+Your information is handled according to our Privacy Policy.
+13. FAQ
+Page Header
+Headline: Frequently Asked Questions
+Intro: Answers to the questions we hear most often about working with Nueclue. If yours isn't here, contact us.
+Working With Us
+What kind of clients do you work with? Enterprises and MNCs, startups at idea or growth stage, and colleges, universities, and research institutions.
+Where are you based? Do you work with clients outside Bengaluru? We're based in Bengaluru and work remotely with clients across India and internationally. On-site visits are arranged for infrastructure deployments and training.
+How does a project start? With a free discovery call, followed by a written proposal covering scope, technical approach, timeline, and cost.
+Do you sign NDAs? Yes, before any detailed discussion of your idea, data, or systems.
+Pricing and Engagement
+How do you price projects? Three models: fixed-scope pricing for well-defined projects, monthly retainers for ongoing development and support, and short paid discovery sprints when requirements need validation first.
+Can you give a quote before understanding our requirement? We can give a rough range after the discovery call. A firm quote comes with the written proposal.
+Do you offer ongoing support after delivery? Yes, through maintenance retainers covering bug fixes, model updates, monitoring, and infrastructure tuning.
+Code, Data, and Security
+Who owns the code and IP? You do. On completion and payment, we hand over source code, documentation, and trained model weights.
+Will our data be used to train other models? No. Your data is used only for your project.
+Can AI systems run without sending data to external AI providers? Yes. We deploy open-source models on your own servers or private cloud, so data never leaves your environment.
+How do you handle data protection? We follow access controls, least-privilege access, and handling practices aligned with India's DPDP Act.
+AI Development and Agents
+How long does an AI project take? A focused use case usually reaches production in 6 to 12 weeks. A single-workflow AI agent typically launches in 3 to 6 weeks. Startup MVPs usually take 6 to 12 weeks after discovery.
+Do we need a lot of data to start? Not always. Many LLM and RAG applications work with existing documents. We assess data readiness during scoping.
+Do your voice agents support Indian languages? Yes: English, Tamil, Hindi, and other Indian languages, including mixed-language conversations.
+GPU Flex and Infrastructure
+What is GPU Flex? Our platform for NVIDIA GPU servers. It provides shared, dedicated, and MIG-partitioned allocation, browser access through JupyterHub and web terminal, and a live dashboard for utilisation and users.
+Does GPU Flex run in the cloud? No. It runs on your own hardware, on-premise.
+We already own GPUs. Can you help? Yes. We start with a utilisation audit and improve access, scheduling, and monitoring on your existing hardware.
+Do you supply GPU hardware? We advise on configuration and sizing, and can coordinate procurement through authorised channels.
+Do you provide training for our team or students? Yes: administrator training, faculty development programs, and hands-on student workshops.
+Closing CTA
+Still have questions? [Contact Us]
+14. Contact
+Page Header
+Headline: Contact
+Intro: Tell us about your project, infrastructure, or idea. We review every enquiry and respond within one business day with next steps.
+Enquiry Form
+• Name *
+• Organisation *
+• Work Email *
+• Phone / WhatsApp
+• Organisation type *: Enterprise / MNC · Startup · University / College · Other
+• Service of interest *: Enterprise AI Development · AI Agents & Automation · AI Product Engineering for Startups · GPU Flex · GPU Labs for Institutions · Not sure yet
+• Project stage: Exploring an idea · Requirements defined · Existing system needs improvement · Existing GPU infrastructure needs optimisation
+• Expected timeline: Within 1 month · 1–3 months · 3+ months · Just exploring
+• Tell us about your requirement * (placeholder: Briefly describe the problem, current setup, and what a successful outcome looks like.)
+• Checkbox: I agree to the Privacy Policy.
+[Submit Enquiry]
+Your information is used only to respond to your enquiry. We don't share it with third parties.
+Direct Contact
+• Email: [contact@nueclue.com]
+• Phone / WhatsApp: [+91 XXXXX XXXXX]
+• Location: Bengaluru, Karnataka, India. Serving clients across India and internationally.
+• Working hours: Monday to Saturday, 10:00 AM – 7:00 PM IST
+What Happens Next
+1. Initial response: we reply within one business day and ask any clarifying questions.
+2. Discovery call: a 30-minute call to understand your requirements, data, infrastructure, and constraints.
+3. Proposal: a written proposal covering scope, technical approach, timeline, and cost.
+For Institutions
+Planning a GPU lab or AI training program for your college or university? Include your expected number of users, current hardware, and academic use cases in your message, so we can prepare a relevant proposal for the first call.
+Closing Line
+Prefer a quick conversation? Message us on WhatsApp and we'll set up a call at a convenient time.
+[Chat on WhatsApp]
+15. Privacy Policy
+Publishing note: a starting template, not legal advice. Have a lawyer review it before launch, and update Sections 5 and 6 once your hosting, form, and analytics tools are chosen.
+Last updated: [Date]
+1. Introduction
+This Privacy Policy explains how Nueclue ("Nueclue", "we", "us", or "our") collects, uses, stores, and protects personal data when you visit [www.nueclue.com] (the "Website") or contact us about our services.
+Nueclue is a business operated by Karthik Velusamy, based in Bengaluru, Karnataka, India. We process personal data in accordance with the Digital Personal Data Protection Act, 2023 (DPDP Act), the rules made under it, and the Information Technology Act, 2000.
+By using the Website or submitting your information, you consent to the processing of your personal data as described in this policy.
+2. Personal Data We Collect
+Information you provide: when you fill in a form, email us, or contact us via WhatsApp or phone, we may collect your name and designation, organisation name, email address and phone number, details of your project or infrastructure, and any other information you choose to share.
+Information collected automatically: when you browse the Website, we may collect limited technical data such as IP address, browser type, device information, pages visited, time spent, referring websites, and cookie and analytics data (see Section 6).
+We do not intentionally collect sensitive personal data such as financial account details, health information, or government ID numbers through the Website.
+3. How We Use Your Personal Data
+• Responding to enquiries and scheduling discussions
+• Preparing proposals and quotations
+• Delivering services under an agreed engagement
+• Sending service-related communication
+• Improving the Website's content, performance, and security
+• Meeting legal, tax, and regulatory obligations
+We do not sell or rent your personal data. We send marketing communication only with your consent, and you can opt out at any time.
+4. Consent and Withdrawal
+We process your personal data based on the consent you give when you submit a form or contact us, or where processing is otherwise permitted by law. You may withdraw consent at any time by writing to [privacy@nueclue.com]. Withdrawal does not affect processing already carried out, but we may be unable to continue responding to your enquiry or providing services.
+5. Sharing of Personal Data
+We share personal data only when necessary, with:
+• Service providers that support our operations, such as website hosting, email, form handling, and analytics, under obligations to protect your data
+• Professional advisors such as accountants and legal advisors, where required
+• Government or law-enforcement authorities, when required by law
+Some service providers may store data on servers outside India. Where this happens, we transfer data only as permitted under Indian law and take reasonable steps to protect it.
+6. Cookies and Analytics
+The Website may use cookies and similar technologies to keep it functioning properly and to understand how visitors use it through analytics tools. You can control or disable cookies through your browser settings; this may affect some functionality.
+7. Data Retention
+• Enquiry data: up to [24 months] from last contact, unless an engagement begins
+• Client and contract data: for the duration of the engagement and as required under tax and accounting laws
+• Analytics data: in aggregated or anonymised form where possible
+After the retention period, we delete or anonymise the data.
+8. Data Security
+We use reasonable technical and organisational measures to protect personal data against unauthorised access, loss, misuse, or alteration, including access controls, secure communication channels, and restricting access to people who need it. No method of internet transmission is fully secure. In the event of a personal data breach, we will act in accordance with the DPDP Act, including notifying affected individuals and authorities where required.
+9. Your Rights
+Under the DPDP Act, you have the right to:
+• Access a summary of the personal data we hold about you and how it is processed
+• Correct, complete, or update inaccurate or incomplete data
+• Erase your personal data when no longer needed, subject to legal retention requirements
+• Withdraw consent at any time
+• Grievance redressal for any concern about how we handle your data
+• Nominate another person to exercise your rights in case of death or incapacity
+To exercise these rights, contact [privacy@nueclue.com]. We will respond within the time required by law.
+10. Children's Data
+The Website and our services are intended for businesses and institutions. We do not knowingly collect personal data from individuals under 18. If you believe a child has shared personal data with us, contact us and we will delete it.
+11. Third-Party Links
+The Website may contain links to third-party websites. We are not responsible for their privacy practices.
+12. Changes to This Policy
+We may update this policy from time to time. The updated version will be posted here with a revised "Last updated" date, and significant changes will be highlighted on the Website.
+13. Grievance Officer and Contact
+• Grievance Officer: Karthik Velusamy
+• Email: [privacy@nueclue.com]
+• Address: Bengaluru, Karnataka, India
+• Response time: acknowledgement within [7] days, resolution within [30] days
+If you are not satisfied with our response, you may approach the Data Protection Board of India as provided under the DPDP Act.
+16. Terms of Use
+Publishing note: a starting template, not legal advice. Have a lawyer review it before launch.
+Last updated: [Date]
+1. Acceptance of Terms
+These Terms of Use ("Terms") govern your access to and use of [www.nueclue.com] (the "Website"), operated by Nueclue, a business owned by Karthik Velusamy, based in Bengaluru, Karnataka, India ("Nueclue", "we", "us", or "our"). By accessing or using the Website, you agree to these Terms. If you do not agree, please do not use the Website.
+2. Purpose of the Website
+The Website provides information about Nueclue's services, including AI development, AI agents and automation, AI product engineering, and the GPU Flex platform, and allows visitors to contact us. Information on the Website is for general purposes only. Submitting an enquiry does not create a client relationship or contractual obligation. Any engagement is governed by a separate written agreement or proposal accepted by both parties.
+3. Use of the Website
+You agree to use the Website only for lawful purposes. You must not:
+• Use the Website in any way that violates applicable laws or regulations
+• Attempt to gain unauthorised access to the Website, its servers, or connected systems
+• Introduce viruses, malware, or other harmful code
+• Scrape or extract content using automated tools without written permission
+• Submit false, misleading, or impersonated information through forms
+• Interfere with the Website's operation or security
+We may restrict or block access for anyone who breaches these Terms.
+4. Intellectual Property
+All content on the Website, including text, graphics, logos, design, layout, and the Nueclue and GPU Flex names, is owned by or licensed to Nueclue and protected by applicable intellectual property laws. You may view and print pages for personal or internal business reference. You may not reproduce, modify, distribute, or republish Website content for commercial purposes without our prior written consent.
+5. Third-Party Trademarks
+NVIDIA, DGX, Jetson, CUDA, and other product names mentioned on the Website are trademarks of their respective owners. Their use is for identification and descriptive purposes only and does not imply endorsement, sponsorship, or affiliation unless stated explicitly.
+6. Accuracy of Information
+We make reasonable efforts to keep Website content accurate and up to date. Service descriptions, technical capabilities, and configurations may change, and the Website may contain errors or omissions. Scope, specifications, timelines, and pricing are confirmed only in a written proposal or agreement.
+7. No Warranties
+The Website is provided on an "as is" and "as available" basis. To the extent permitted by law, we make no warranties, express or implied, regarding its availability, accuracy, reliability, or fitness for a particular purpose, and do not guarantee that it will be uninterrupted, secure, or error-free.
+8. Limitation of Liability
+To the maximum extent permitted by law, Nueclue shall not be liable for any indirect, incidental, special, or consequential loss or damage arising from your use of, or inability to use, the Website or its information, including loss of data, revenue, or business opportunity. Nothing in these Terms limits liability that cannot be excluded under applicable law.
+9. Indemnity
+You agree to indemnify and hold Nueclue harmless from any claims, losses, or expenses, including reasonable legal fees, arising from your breach of these Terms or misuse of the Website.
+10. Third-Party Links
+The Website may contain links to external websites. We do not control and are not responsible for their content, policies, or practices. Accessing them is at your own risk.
+11. Privacy
+Your use of the Website is also governed by our [Privacy Policy], which explains how we collect and use personal data.
+12. Changes to These Terms
+We may update these Terms from time to time. Changes take effect when posted with a revised "Last updated" date. Continued use of the Website means you accept the updated Terms.
+13. Governing Law and Jurisdiction
+These Terms are governed by the laws of India. Any disputes are subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka.
+14. Contact
+Nueclue · Email: [contact@nueclue.com] · Bengaluru, Karnataka, India

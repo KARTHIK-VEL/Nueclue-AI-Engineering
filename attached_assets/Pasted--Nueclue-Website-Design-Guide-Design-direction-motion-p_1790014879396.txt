@@ -1,0 +1,311 @@
+# Nueclue Website Design Guide
+
+Design direction, motion, page layouts, and build prompt for the Nueclue website.
+
+---
+
+## 1. Design Direction
+
+The site should feel like an engineering firm's portfolio: editorial, image-led, precise, and built around real hardware and real work. Motion is driven by photography: images reveal, expand, and carry the visitor from page to page.
+
+### The Look in One Line
+
+Dark editorial layout, large confident type, real photography of GPU hardware and people at work, thin technical grid lines, and one warm accent colour.
+
+### What to Avoid (the "AI website" look)
+
+- Purple-blue gradients, neon glows, and glowing "neural network" backgrounds
+- AI-generated images: robot hands, glowing brains, humanoid faces, abstract particle blobs
+- Glassmorphism cards on every section
+- Sparkle icons, gradient text, and "AI-powered" badges
+- Rows of identical icon cards with three-line descriptions
+- Floating 3D shapes with no meaning
+- Stock photos of people pointing at transparent screens
+
+### Colour Palette
+
+| Role | Colour | Use |
+| --- | --- | --- |
+| Background | #0B0B0C (near-black) | Main page background |
+| Surface | #16161A | Cards, panels, form fields |
+| Light section | #F2EFE9 (warm off-white) | Alternate sections, legal pages, blog reading |
+| Primary text (dark bg) | #EDEBE6 | Headlines and body on dark |
+| Secondary text | #8C8A85 | Labels, captions, metadata |
+| Accent | #FF5A1F (signal orange) | Buttons, links, active states, GPU Flex highlights |
+| Grid lines | rgba(255,255,255,0.08) | Hairline dividers and layout grid |
+
+One accent only. Orange ties the site to the GPU Flex dashboard. Never use gradients on text or buttons.
+
+### Typography
+
+- **Headlines:** Archivo (weights 600–800), large and tight, letter-spacing −2% to −3%. Desktop hero at 88–120px.
+- **Body:** Inter (400/500), 17–18px, line-height 1.6.
+- **Technical labels:** IBM Plex Mono, 12–13px, uppercase, letter-spacing +8%. Use for section numbers (01 / 04), tags, specs, and captions such as "NVIDIA DGX · 8× GPU · MIG".
+
+All three are free on Google Fonts. The mono labels are what make the site read as engineering rather than marketing.
+
+### Layout System
+
+- 12-column grid, max width 1440px, 24px gutters, generous margins (80–120px desktop)
+- Visible hairline grid lines between sections and columns, like a technical drawing
+- Numbered sections (01, 02, 03) in mono in the top-left of each section
+- Asymmetric layouts: large image on one side, text offset on the other; avoid centring everything
+- Plenty of empty space; one idea per screen
+
+### Imagery Direction
+
+Photography carries the whole site, so it must be real.
+
+- **Hardware close-ups:** DGX and GPU server fronts, cables, rack lights, heatsinks, Jetson boards. Shot dark with hard side light.
+- **People at work:** engineers at terminals, students in a GPU lab, faculty training sessions, whiteboard sessions. Natural, candid, not posed.
+- **Real screens:** actual GPU Flex dashboard screenshots, terminal output, Jupyter notebooks, agent call logs. Blur anything confidential.
+- **Places:** server rooms, college labs, clinics (for the agent case study), factory floors (for vision use cases).
+
+Treatment: slightly desaturated, deep blacks, warm highlights, subtle film grain (2–4%). Apply the same grade to every image so the site looks consistent.
+
+Sources: shoot your own at client sites and labs (with permission) first. For stock, use Unsplash or Pexels with searches like "server rack dark", "data centre cables", "engineer terminal night", "university computer lab". Never use AI-generated images.
+
+### Buttons, Links, and Small Elements
+
+- Primary button: solid orange, black text, square corners (2px radius), mono uppercase label with an arrow →
+- Secondary button: 1px outline, off-white text
+- Links: underline that draws in from left on hover
+- Cursor: small custom dot that grows into a "View" or "Drag" label over images and sliders (desktop only)
+- Icons: thin line icons (1.5px stroke) only where necessary; prefer images and numbers over icons
+
+---
+
+## 2. Motion and Scroll Effects
+
+Motion should feel smooth and deliberate, never bouncy or flashy. Every effect is tied to scroll position or a user action, and images do most of the moving.
+
+### Global Settings
+
+- **Smooth scroll:** Lenis, duration about 1.1s, gentle easing
+- **Easing:** cubic-bezier(0.76, 0, 0.24, 1) for reveals; power3.out for text
+- **Durations:** 0.6–1.2s for reveals, 0.3s for hovers
+- **Reduced motion:** when the visitor has prefers-reduced-motion enabled, turn off parallax, pinning, and page transitions, and show content with a simple fade
+
+### Image Effects (the core of the site)
+
+| Effect | How it works | Where to use |
+| --- | --- | --- |
+| Mask reveal | Image uncovers with a clip-path wipe (bottom to top) while the image inside scales from 1.15 to 1.0 | Every major image as it enters the screen |
+| Inner parallax | Image moves slower than its frame (about 10–15% offset) inside an overflow-hidden container | Full-width and half-width photos |
+| Expanding image | A small centred image grows to full screen as you scroll, then the next section appears over it | Home hero → What We Do; GPU Flex hero |
+| Hover image preview | Hovering a service or case-study title shows an image that follows the cursor with slight lag | Services list, Case Studies list, Blog list |
+| Image sequence strip | A horizontal row of lab and hardware photos that scrolls sideways while you scroll down (pinned section) | Home "Who We Work With", GPU Labs page |
+| Before/after slider | Draggable divider between two images | GPU Flex: idle GPUs vs utilised dashboard |
+
+### Text Effects
+
+- **Line reveal:** headlines split into lines; each line slides up from behind a mask, staggered by 0.08s
+- **Mono labels:** section numbers and tags type in character by character (fast, 20ms per character)
+- **Counters:** numbers count up when visible. Use only real, verified figures; skip counters entirely until you have them
+- **Marquee:** a slow, continuous strip of technology names (CUDA · MIG · Kubernetes · vLLM · TensorRT…) in mono type; pauses on hover
+
+### Pinned Scroll Storytelling
+
+Use on the GPU Flex page and the Home spotlight. The dashboard screenshot stays pinned on one side while text steps change on the other. Each step swaps the screenshot to a matching state:
+
+1. Idle GPUs (grey, low utilisation)
+2. MIG partitions assigned to students
+3. Live utilisation bars filling up
+4. Admin view with users and containers
+
+Use real dashboard captures for each state.
+
+### Page Transitions
+
+- **Shared-image transition:** when a visitor clicks a service card or case study, its image expands to fill the screen and becomes the hero of the next page
+- **Default transition:** an off-black panel wipes up over the page, the new page loads, the panel wipes away (0.8s total)
+- Always keep transitions under 1 second so the site doesn't feel slow
+
+### Micro-Interactions
+
+- Buttons: arrow slides right 4px on hover; background fills from left
+- Navigation: hides on scroll down, reappears on scroll up; becomes solid after 80px
+- Cards: image zooms 1.05× inside its frame on hover, no card lift or shadow
+- Form fields: bottom border turns orange on focus; label floats up
+
+### Recommended Tools
+
+- **Framework:** Next.js (React) or Astro
+- **Animation:** GSAP with ScrollTrigger (scroll effects, pinning, text splitting)
+- **Smooth scroll:** Lenis
+- **Page transitions:** Next.js with Framer Motion, or Barba.js for a static site
+- **No-code alternative:** Framer or Webflow, both of which support these effects natively
+
+### Performance Rules
+
+- Images in AVIF or WebP, responsive sizes, lazy-loaded below the fold
+- Hero image preloaded; Largest Contentful Paint under 2.5s
+- Animate only transform and opacity (plus clip-path for masks)
+- On mobile: keep mask reveals and fades; drop cursor effects, horizontal pinned strips (use swipe instead), and heavy parallax
+
+---
+
+## 3. Page-by-Page Layout
+
+### Global Elements
+
+- **Navigation:** logo left; links centre in Inter 15px; orange "Discuss a Project →" button right. Transparent over the hero, solid off-black after scroll. Mobile: full-screen menu that slides down with large Archivo links and a hardware photo behind at 20% opacity.
+- **Footer:** a very large "Let's build." headline across the full width, then four columns (Services, Company, Legal, Contact) separated by hairlines. Mono copyright line at the bottom.
+- **Loader (first visit only):** a mono counter 00 → 100 over black, then the hero image mask-reveals. Maximum 1.2 seconds.
+
+### 1. Home
+
+| Section | Layout and elements | Motion |
+| --- | --- | --- |
+| Hero | Full-screen dark photo of a GPU server front with rack lights; headline bottom-left in huge Archivo; mono tag top-left "AI ENGINEERING · GPU INFRASTRUCTURE · BENGALURU" | Headline line reveal; image slow zoom out 1.1 → 1.0 |
+| What We Do | Small centred image expands to full screen, then text appears over a dark overlay | Expanding image on scroll |
+| Services | Numbered list (01–04) of four large service titles separated by hairlines; each row shows a one-line description and arrow | Cursor-following image preview on hover; mobile shows image inline |
+| GPU Flex Spotlight | Left: pinned dashboard screenshot. Right: 4 scroll steps with feature text | Pinned scroll storytelling |
+| Who We Work With | Horizontal strip of three large photo cards: enterprise office, startup team, university lab | Pinned horizontal scroll |
+| Technical Capabilities | Three columns of mono text lists on off-white background; tech marquee underneath | Marquee; lists type in |
+| How an Engagement Works | Five numbered steps on a horizontal timeline with a line that draws as you scroll | Line draw + step fade-in |
+| Contact CTA | Full-width photo of engineers at work, big headline and orange button | Mask reveal |
+
+### 2. Services (Overview)
+
+- Hero: headline only, with a thin hairline grid behind
+- Four full-width blocks, alternating image left/right, each with a number, title, bullets, and "Learn more →"
+- Motion: images mask-reveal with inner parallax; clicking "Learn more" triggers the shared-image transition into the service page
+
+### 3. GPU Flex (Product Page)
+
+- Hero: "GPU Flex" in very large type over a close-up of GPU hardware; the image expands to full screen on scroll
+- The Problem: five problems as a large numbered list on off-white
+- What GPU Flex Does: pinned dashboard storytelling (4 states), then a grid of access methods (JupyterHub, Web Terminal, SSH, Admin) each with a real screenshot
+- Before/after slider: underused GPUs vs full utilisation
+- Who It's For: three columns with photos
+- Deployment: horizontal five-step timeline
+- FAQ: accordion with hairline dividers, plus sign rotates to a cross
+- CTA: two buttons (Demo / Audit) over a server-room photo
+
+### 4–6. Service Detail Pages (Enterprise AI, AI Agents, Startups)
+
+All three share one template:
+
+- Hero image (from the shared-image transition) with title and subheadline
+- Problem section: large pull-quote style text on off-white
+- What we build: two-column grid of items, each with a small photo or real screenshot, not icons
+- Process: numbered vertical steps with a progress line on the left that fills on scroll
+- Tech stack: mono tags in a wrapping row
+- FAQ accordion, then CTA
+
+Page-specific extras: AI Agents gets an audio player with a sample agent call recording and a transcript that highlights line by line. Startups gets the engagement-model table styled as three comparison columns.
+
+### 7. GPU Labs for Institutions
+
+- Hero photo of students in a GPU lab
+- Pinned horizontal photo strip of lab setups
+- Lab configurations as four large cards with a photo of each hardware type
+- Form in a two-column layout on off-white
+
+### 8. Industries
+
+- Seven industries as full-width rows; each row expands on click (accordion) to reveal use cases and a large image
+- Hover shows a cursor-following industry photo
+
+### 9. Case Studies
+
+- List view with large titles, client type, and service tags in mono; cursor image preview on hover
+- Each case study opens as its own page via the shared-image transition: hero image, Challenge / Approach / Outcome sections, and a tech tag row
+
+### 10. About
+
+- Opening statement in very large type across the full width
+- Founder section: large black-and-white portrait left, bio right
+- "What Sets Our Work Apart" as four numbered rows with hairlines
+- Mission and Vision as two large statements on off-white
+
+### 11. Blog / Insights
+
+- Category filter as mono pill buttons
+- Featured article as a large image card; others in a 3-column grid with image, category, title, and read time
+- Article pages: off-white background, 680px reading width, Inter 19px, code blocks in dark with IBM Plex Mono
+
+### 12. Careers
+
+- Hero photo of the team or a workspace
+- "How We Work" as four numbered rows; roles as a list with hover images
+- Application form on off-white
+
+### 13. FAQ
+
+- Two columns: sticky category list on the left, accordions on the right; clicking a category scrolls to its group
+
+### 14. Contact
+
+- Split screen: left side a full-height dark photo with contact details over it; right side the form
+- Form fields with floating labels; service and organisation options as selectable chips instead of dropdowns
+- WhatsApp button fixed bottom-right on mobile
+
+### 15–16. Privacy Policy and Terms
+
+- Plain off-white reading layout, 680px width, sticky table of contents on the left for desktop
+- No animation beyond a simple fade
+
+---
+
+## 4. Build Prompt (Copy and Paste)
+
+Paste this into an AI site builder (Lovable, v0, Bolt, Framer AI) or send it to a developer along with the page content. Build one page at a time, starting with Home, and paste that page's content after the prompt.
+
+```
+Build a multi-page website for Nueclue, an AI engineering firm in Bengaluru that builds enterprise AI products, AI agents, startup AI products, and runs GPU Flex, a platform for managed NVIDIA GPU infrastructure.
+
+STACK
+Next.js (App Router) + TypeScript + Tailwind CSS. GSAP with ScrollTrigger for scroll animation, Lenis for smooth scrolling, Framer Motion for page transitions. Images via next/image in AVIF/WebP.
+
+VISUAL DIRECTION
+Dark editorial engineering-portfolio style. Image-led, precise, minimal. It must NOT look like a typical AI startup site.
+Do NOT use: purple/blue gradients, neon glow, gradient text, glassmorphism, particle or neural-network backgrounds, sparkle icons, 3D blobs, robot or brain imagery, AI-generated images, rows of identical icon cards.
+
+COLOURS
+Background #0B0B0C, surface #16161A, light sections #F2EFE9, text #EDEBE6, muted text #8C8A85, single accent #FF5A1F, hairline grid lines rgba(255,255,255,0.08). No gradients.
+
+TYPOGRAPHY (Google Fonts)
+Headlines: Archivo 600-800, tight letter-spacing (-0.03em), hero 88-120px desktop.
+Body: Inter 400/500, 17-18px, line-height 1.6.
+Labels, section numbers, tags, specs: IBM Plex Mono 12-13px uppercase, letter-spacing 0.08em.
+
+LAYOUT
+12-column grid, max width 1440px, large margins, visible hairline dividers like a technical drawing. Numbered sections (01, 02...) in mono at the top-left of each section. Asymmetric layouts, lots of empty space, one idea per screen.
+
+IMAGERY
+Use placeholder slots for real photography: GPU server racks, DGX hardware close-ups, cables, engineers at terminals, students in computer labs, real dashboard screenshots. Dark, slightly desaturated grade with subtle film grain. Label each placeholder with the intended photo.
+
+MOTION
+- Every major image: clip-path mask reveal (bottom to top) with inner image scaling 1.15 to 1.0.
+- Inner parallax on large images (10-15% offset).
+- Headlines: split into lines, each line slides up from a mask, 0.08s stagger.
+- Home hero: slow zoom 1.1 to 1.0; next section uses a small centred image that expands to full screen on scroll.
+- Services and case-study lists: cursor-following image preview on hover (desktop only).
+- GPU Flex: pinned section where a dashboard image stays fixed and swaps between 4 states as text steps scroll past.
+- Pinned horizontal photo strip for "Who We Work With" and GPU Labs.
+- Tech marquee in mono type, pauses on hover.
+- Page transitions: clicked card image expands into the next page's hero; default transition is an off-black panel wipe under 0.8s.
+- Navigation hides on scroll down, shows on scroll up.
+- Buttons: square (2px radius), orange fill, mono uppercase label with arrow that shifts right on hover.
+- Easing cubic-bezier(0.76, 0, 0.24, 1); reveal durations 0.6-1.2s.
+- Respect prefers-reduced-motion: disable parallax, pinning, and transitions; use simple fades.
+- Mobile: keep reveals and fades, replace pinned horizontal scroll with swipe, remove cursor effects.
+
+PAGES
+Home, Services, GPU Flex, Enterprise AI, AI Agents, Startup Product Engineering, GPU Labs for Institutions, Industries, Case Studies (list + detail), About, Insights (list + article), Careers, FAQ, Contact, Privacy Policy, Terms of Use.
+Use the exact copy provided for each page. Do not invent statistics, client names, or testimonials.
+
+QUALITY
+Lighthouse 90+ on performance and accessibility. Largest Contentful Paint under 2.5s. Animate only transform, opacity, and clip-path. Semantic HTML, alt text on every image, visible focus states, AA colour contrast.
+
+Now build this page with the following content:
+[PASTE PAGE CONTENT HERE]
+```
+
+### Before You Build
+
+- Collect 20–30 real photos first; the design depends on them more than on any effect
+- Take clean GPU Flex dashboard screenshots for each of the four storytelling states
+- Register the domain and business email so they can go into the footer and forms
