@@ -225,6 +225,16 @@
   border: 1px solid rgba(237,235,230,.18);
   isolation: isolate;
 }
+.photo-slot.has-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 999px rgba(11, 11, 12, .24);
+  transition: background-position .8s cubic-bezier(.76,0,.24,1);
+}
+.photo-slot.has-image:hover { background-position: center 46%; }
+.photo-slot.has-image .slot-kicker,
+.photo-slot.has-image .slot-caption { text-shadow: 0 1px 16px rgba(0,0,0,.9); }
 .photo-slot::before {
   content: '';
   position: absolute;

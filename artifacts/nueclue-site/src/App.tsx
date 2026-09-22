@@ -58,6 +58,15 @@ const engagementSteps = [
   { number: '05', title: 'Support', description: 'We offer ongoing maintenance, model updates, and performance tuning.' },
 ];
 
+const imageAssets = {
+  server: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1800&q=85',
+  engineer: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1800&q=85',
+  enterprise: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85',
+  startup: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1800&q=85',
+  university: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1800&q=85',
+  contact: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=85',
+};
+
 function GridLines() {
   return <div className="section-grid-lines" aria-hidden="true">{Array.from({ length: 12 }, (_, index) => <span key={index} />)}</div>;
 }
@@ -82,10 +91,15 @@ function useRevealOnScroll() {
   }, []);
 }
 
-function PhotoSlot({ label, caption, meta, className = '' }: { label: string; caption: string; meta?: string; className?: string }) {
+function PhotoSlot({ label, caption, meta, imageUrl, className = '' }: { label: string; caption: string; meta?: string; imageUrl?: string; className?: string }) {
   return (
-    <div className={`photo-slot mask-reveal ${className}`} role="img" aria-label={`Placeholder for ${label}`}>
-      <span className="slot-kicker">PHOTO SLOT / {label}</span>
+    <div
+      className={`photo-slot mask-reveal ${imageUrl ? 'has-image' : ''} ${className}`}
+      role="img"
+      aria-label={`${imageUrl ? 'Image of' : 'Placeholder for'} ${label}`}
+      style={imageUrl ? { backgroundImage: `url("${imageUrl}")` } : undefined}
+    >
+      <span className="slot-kicker">{imageUrl ? 'IMAGE /' : 'PHOTO SLOT /'} {label}</span>
       <span className="slot-crosshair" aria-hidden="true" />
       <div className="slot-caption">{caption}{meta && <span className="slot-meta block mt-2">{meta}</span>}</div>
     </div>
@@ -163,7 +177,7 @@ function Hero() {
               <a href="#services" data-testid="link-hero-view-services" className="outline-button">View services <ArrowDownRight size={16} /></a>
             </div>
           </div>
-          <PhotoSlot label="GPU SERVER FRONT" caption="Intended hero image / GPU server front with rack lights" meta="NVIDIA DGX · 8× GPU · ON-PREMISE" className="reveal delay-2 min-h-[20rem] lg:mb-2" />
+          <PhotoSlot label="GPU SERVER FRONT" caption="GPU server front with rack lights" meta="NVIDIA DGX · 8× GPU · ON-PREMISE" imageUrl={imageAssets.server} className="reveal delay-2 min-h-[20rem] lg:mb-2" />
         </div>
         <div className="hero-rail reveal delay-3 mt-16 grid grid-cols-2 sm:grid-cols-4">
           {['RESEARCH TO REALITY', 'SYSTEMS, NOT DEMOS', 'BUILT AROUND YOUR DATA', 'BENGALURU, WORLDWIDE'].map((label, index) => (
@@ -189,7 +203,7 @@ function WhatWeDo() {
             <h2 className="display-heading max-w-3xl text-[clamp(2.5rem,5.4vw,5.8rem)]">We take AI from requirement to deployment.</h2>
             <p className="mt-8 max-w-2xl text-[1.04rem] leading-8 text-black/65">Nueclue is an AI engineering firm based in Bengaluru. We take AI from requirement to deployment: model selection, data pipelines, application development, inference optimisation, and production operations. Our clients range from global enterprises to early-stage startups and universities building AI research capacity.</p>
           </div>
-          <PhotoSlot label="ENGINEER AT TERMINAL" caption="Intended image / engineer at terminal" meta="WORKING SYSTEMS · REAL OPERATIONS" className="reveal delay-2" />
+          <PhotoSlot label="ENGINEER AT TERMINAL" caption="Engineer at work / real operations" meta="WORKING SYSTEMS · REAL OPERATIONS" imageUrl={imageAssets.engineer} className="reveal delay-2" />
         </div>
         <div className="mt-24 grid border-y border-black/15 md:grid-cols-3">
           {[
@@ -241,7 +255,7 @@ function GpuFlexSpotlight() {
         <div className="grid gap-14 lg:grid-cols-[1.08fr_.92fr] lg:items-start lg:gap-20">
           <div className="reveal lg:sticky lg:top-28">
             <div className="section-label mb-8">03 / PRODUCT SPOTLIGHT</div>
-            <PhotoSlot label="GPU FLEX DASHBOARD" caption="Product capture / GPU Flex dashboard" meta="UTILISATION · USERS · CONTAINERS" className="min-h-[25rem] lg:min-h-[37rem]" />
+            <PhotoSlot label="GPU FLEX / HARDWARE CONTEXT" caption="Temporary product context / replace with approved dashboard capture" meta="UTILISATION · USERS · CONTAINERS" imageUrl={imageAssets.server} className="min-h-[25rem] lg:min-h-[37rem]" />
             <div className="mt-4 flex justify-between font-mono-ui text-[.62rem] uppercase tracking-[.1em] text-[#8C8A85]"><span>Dashboard state / live visibility</span><span>01—04</span></div>
           </div>
           <div>
@@ -272,9 +286,9 @@ function GpuFlexSpotlight() {
 
 function WhoWeWorkWith() {
   const groups = [
-    ['Enterprises & MNCs', 'AI product development, process automation, and higher GPU utilisation with GPU Flex for teams running large-scale training and inference.', 'ENTERPRISE OFFICE'],
-    ['Startups', 'Engineering capacity for founders who need to ship an AI product or feature without hiring a full ML team.', 'STARTUP TEAM'],
-    ['Universities & Colleges', 'Managed GPU labs powered by GPU Flex, with browser-based access, per-user quotas, and preconfigured environments for coursework and research.', 'UNIVERSITY GPU LAB'],
+    ['Enterprises & MNCs', 'AI product development, process automation, and higher GPU utilisation with GPU Flex for teams running large-scale training and inference.', 'ENTERPRISE OFFICE', imageAssets.enterprise],
+    ['Startups', 'Engineering capacity for founders who need to ship an AI product or feature without hiring a full ML team.', 'STARTUP TEAM', imageAssets.startup],
+    ['Universities & Colleges', 'Managed GPU labs powered by GPU Flex, with browser-based access, per-user quotas, and preconfigured environments for coursework and research.', 'UNIVERSITY GPU LAB', imageAssets.university],
   ];
   return (
     <section id="who-we-work-with" className="relative overflow-hidden bg-[#0B0B0C] py-24 text-[#EDEBE6] md:py-36">
@@ -282,9 +296,9 @@ function WhoWeWorkWith() {
       <div className="content-width section-inner">
         <div className="grid gap-8 md:grid-cols-[.45fr_1.2fr]"><div className="section-label reveal">04 / WHO WE WORK WITH</div><div className="reveal delay-1"><h2 className="display-heading max-w-4xl text-[clamp(2.7rem,5.4vw,5.8rem)]">For teams building what comes next.</h2><p className="body-copy mt-7 max-w-2xl">The common thread is not company size. It is the conviction that AI should solve a real problem, and the ambition to build it properly.</p></div></div>
         <div className="mt-20 grid gap-4 md:grid-cols-3">
-          {groups.map(([title, body, slot], index) => (
+          {groups.map(([title, body, slot, imageUrl], index) => (
             <article key={title} className={`reveal delay-${index + 1} border border-white/15 bg-[#16161A] p-4`}>
-              <PhotoSlot label={slot} caption={`Intended image / ${slot.toLowerCase()}`} className="min-h-[14rem]" />
+              <PhotoSlot label={slot} caption={`${slot.toLowerCase()} / field context`} imageUrl={imageUrl} className="min-h-[14rem]" />
               <div className="p-3 pb-5"><div className="mt-4 font-mono-ui text-[.67rem] uppercase tracking-[.12em] text-[#FF5A1F]">{title}</div><p className="mt-5 text-sm leading-7 text-[#8C8A85]">{body}</p></div>
             </article>
           ))}
@@ -343,7 +357,7 @@ function Contact() {
       <GridLines />
       <div className="content-width section-inner">
         <div className="grid gap-14 lg:grid-cols-[.9fr_1.1fr] lg:gap-24">
-          <div className="reveal"><div className="section-label light-label">07 / CONTACT</div><h2 className="display-heading mt-8 max-w-2xl text-[clamp(3.2rem,7vw,7.8rem)]">Tell us what you&apos;re building.</h2><p className="mt-8 max-w-md text-base leading-8 text-black/60">We&apos;ll respond within one business day with an initial assessment.</p><PhotoSlot label="ENGINEERS AT WORK" caption="Intended image / engineers at work" meta="NUECLUE · BENGALURU" className="mt-14 min-h-[16rem] bg-[#16161A]" /></div>
+          <div className="reveal"><div className="section-label light-label">07 / CONTACT</div><h2 className="display-heading mt-8 max-w-2xl text-[clamp(3.2rem,7vw,7.8rem)]">Tell us what you&apos;re building.</h2><p className="mt-8 max-w-md text-base leading-8 text-black/60">We&apos;ll respond within one business day with an initial assessment.</p><PhotoSlot label="ENGINEERS AT WORK" caption="Engineers at work / Bengaluru" meta="NUECLUE · BENGALURU" imageUrl={imageAssets.contact} className="mt-14 min-h-[16rem] bg-[#16161A]" /></div>
           <div className="reveal delay-2">
             {submitted ? (
               <div className="flex min-h-[27rem] flex-col justify-center border border-black/15 bg-[#16161A] p-8 text-[#EDEBE6] md:p-12" data-testid="status-contact-success"><div className="grid h-12 w-12 place-items-center bg-[#FF5A1F] text-[#0B0B0C]"><Check size={22} /></div><h3 className="mt-8 font-display text-3xl font-semibold tracking-[-.04em]">Message received.</h3><p className="mt-4 max-w-sm text-sm leading-7 text-[#8C8A85]">Thank you for reaching out. We&apos;ll be in touch within one business day.</p><button type="button" onClick={() => setSubmitted(false)} data-testid="button-send-another" className="arrow-link mt-9 w-fit text-[#EDEBE6]">Send another message <ArrowUpRight size={16} /></button></div>
