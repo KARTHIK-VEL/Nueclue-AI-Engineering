@@ -162,10 +162,19 @@
 }
 
 @media (min-width: 1024px) {
-  .screen-section { padding-block: clamp(4rem, 7vh, 6.5rem); }
-  .screen-section .mt-20 { margin-top: clamp(3rem, 6vh, 5rem); }
-  .screen-section .mt-24 { margin-top: clamp(3.5rem, 7vh, 5.5rem); }
-  .screen-section .mt-32 { margin-top: clamp(4rem, 8vh, 7rem); }
+  .screen-section {
+    height: 100svh;
+    min-height: 0;
+    padding-block: clamp(2.25rem, 4.5vh, 4.25rem);
+  }
+  .screen-section .mt-14 { margin-top: clamp(1.5rem, 3vh, 2.5rem); }
+  .screen-section .mt-20 { margin-top: clamp(1.75rem, 3.5vh, 3.25rem); }
+  .screen-section .mt-24 { margin-top: clamp(2rem, 4vh, 3.75rem); }
+  .screen-section .mt-32 { margin-top: clamp(2.5rem, 5vh, 4.5rem); }
+  .screen-section .photo-slot { min-height: clamp(10rem, 25vh, 18rem); }
+  .screen-section .lg\:min-h-\[37rem\] { min-height: clamp(16rem, 48vh, 28rem); }
+  .screen-section .py-8 { padding-block: clamp(1rem, 2vh, 1.5rem); }
+  .screen-section .py-10 { padding-block: clamp(1.25rem, 2.5vh, 1.75rem); }
 }
 
 .section-grid-lines {
