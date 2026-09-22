@@ -194,7 +194,7 @@ function Hero() {
 
 function WhatWeDo() {
   return (
-    <section id="what-we-do" className="light-section relative overflow-hidden py-24 md:py-36">
+    <section id="what-we-do" className="screen-section light-section relative overflow-hidden py-24 md:py-36">
       <GridLines />
       <div className="content-width section-inner">
         <div className="grid gap-14 lg:grid-cols-[.45fr_1.1fr_.7fr] lg:gap-12">
@@ -225,7 +225,7 @@ function WhatWeDo() {
 
 function Services() {
   return (
-    <section id="services" className="relative overflow-hidden bg-[#0B0B0C] py-24 text-[#EDEBE6] md:py-36">
+    <section id="services" className="screen-section relative overflow-hidden bg-[#0B0B0C] py-24 text-[#EDEBE6] md:py-36">
       <GridLines />
       <div className="content-width section-inner">
         <div className="grid gap-8 md:grid-cols-[.45fr_1.2fr]">
@@ -249,7 +249,7 @@ function Services() {
 
 function GpuFlexSpotlight() {
   return (
-    <section id="gpu-flex" className="relative overflow-hidden bg-[#16161A] py-24 text-[#EDEBE6] md:py-36">
+    <section id="gpu-flex" className="screen-section relative overflow-hidden bg-[#16161A] py-24 text-[#EDEBE6] md:py-36">
       <GridLines />
       <div className="content-width section-inner">
         <div className="grid gap-14 lg:grid-cols-[1.08fr_.92fr] lg:items-start lg:gap-20">
@@ -291,7 +291,7 @@ function WhoWeWorkWith() {
     ['Universities & Colleges', 'Managed GPU labs powered by GPU Flex, with browser-based access, per-user quotas, and preconfigured environments for coursework and research.', 'UNIVERSITY GPU LAB', imageAssets.university],
   ];
   return (
-    <section id="who-we-work-with" className="relative overflow-hidden bg-[#0B0B0C] py-24 text-[#EDEBE6] md:py-36">
+    <section id="who-we-work-with" className="screen-section relative overflow-hidden bg-[#0B0B0C] py-24 text-[#EDEBE6] md:py-36">
       <GridLines />
       <div className="content-width section-inner">
         <div className="grid gap-8 md:grid-cols-[.45fr_1.2fr]"><div className="section-label reveal">04 / WHO WE WORK WITH</div><div className="reveal delay-1"><h2 className="display-heading max-w-4xl text-[clamp(2.7rem,5.4vw,5.8rem)]">For teams building what comes next.</h2><p className="body-copy mt-7 max-w-2xl">The common thread is not company size. It is the conviction that AI should solve a real problem, and the ambition to build it properly.</p></div></div>
@@ -310,7 +310,7 @@ function WhoWeWorkWith() {
 
 function Capabilities() {
   return (
-    <section id="capabilities" className="light-section relative overflow-hidden py-24 md:py-36">
+    <section id="capabilities" className="screen-section light-section relative overflow-hidden py-24 md:py-36">
       <GridLines />
       <div className="content-width section-inner">
         <div className="grid gap-8 md:grid-cols-[.45fr_1.2fr]"><div className="section-label light-label reveal">05 / TECHNICAL CAPABILITIES</div><div className="reveal delay-1"><h2 className="display-heading max-w-4xl text-[clamp(2.7rem,5.4vw,5.8rem)]">A full-stack view of applied intelligence.</h2><p className="mt-7 max-w-2xl text-base leading-8 text-black/60">Strong models are only one layer. We bring equal care to the data, software, infrastructure, and feedback loops that make them useful.</p></div></div>
@@ -332,7 +332,7 @@ function Capabilities() {
 
 function Process() {
   return (
-    <section id="process" className="relative overflow-hidden bg-[#0B0B0C] py-24 text-[#EDEBE6] md:py-36">
+    <section id="process" className="screen-section relative overflow-hidden bg-[#0B0B0C] py-24 text-[#EDEBE6] md:py-36">
       <GridLines />
       <div className="content-width section-inner">
         <div className="grid gap-8 md:grid-cols-[.45fr_1.2fr]"><div className="section-label reveal">06 / HOW AN ENGAGEMENT WORKS</div><div className="reveal delay-1"><h2 className="display-heading max-w-4xl text-[clamp(2.7rem,5.4vw,5.8rem)]">Clear steps. No theatre.</h2><p className="body-copy mt-7 max-w-2xl">We keep the work close to the outcome and the decision-making visible at every stage.</p></div></div>
@@ -353,7 +353,7 @@ function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); setSubmitted(true); };
   return (
-    <section id="contact" className="relative overflow-hidden bg-[#F2EFE9] py-24 text-[#0B0B0C] md:py-36">
+    <section id="contact" className="screen-section relative overflow-hidden bg-[#F2EFE9] py-24 text-[#0B0B0C] md:py-36">
       <GridLines />
       <div className="content-width section-inner">
         <div className="grid gap-14 lg:grid-cols-[.9fr_1.1fr] lg:gap-24">
